@@ -25,9 +25,14 @@ import Midday from '@midday/engine';
 const midday = new Midday();
 
 async function main() {
-  const health = await midday.health.retrieve();
+  const transactions = await midday.transactions.list({
+    accountType: 'credit',
+    provider: 'teller',
+    accessToken: 'token-123',
+    accountId: '5341343-4234-4c65-815c-t234213442',
+  });
 
-  console.log(health.plaid);
+  console.log(transactions.data);
 }
 
 main();
@@ -44,7 +49,8 @@ import Midday from '@midday/engine';
 const midday = new Midday();
 
 async function main() {
-  const health: Midday.Health = await midday.health.retrieve();
+  const params: Midday.TransactionListParams = { accountType: 'depository', provider: 'teller' };
+  const transactions: Midday.Transactions = await midday.transactions.list(params);
 }
 
 main();
@@ -61,15 +67,17 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const health = await midday.health.retrieve().catch(async (err) => {
-    if (err instanceof Midday.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+  const transactions = await midday.transactions
+    .list({ accountType: 'depository', provider: 'teller' })
+    .catch(async (err) => {
+      if (err instanceof Midday.APIError) {
+        console.log(err.status); // 400
+        console.log(err.name); // BadRequestError
+        console.log(err.headers); // {server: 'nginx', ...}
+      } else {
+        throw err;
+      }
+    });
 }
 
 main();
@@ -104,7 +112,7 @@ const midday = new Midday({
 });
 
 // Or, configure per-request:
-await midday.health.retrieve({
+await midday.transactions.list({ accountType: 'depository', provider: 'teller' }, {
   maxRetries: 5,
 });
 ```
@@ -121,7 +129,7 @@ const midday = new Midday({
 });
 
 // Override per-request:
-await midday.health.retrieve({
+await midday.transactions.list({ accountType: 'depository', provider: 'teller' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -142,13 +150,17 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const midday = new Midday();
 
-const response = await midday.health.retrieve().asResponse();
+const response = await midday.transactions
+  .list({ accountType: 'depository', provider: 'teller' })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: health, response: raw } = await midday.health.retrieve().withResponse();
+const { data: transactions, response: raw } = await midday.transactions
+  .list({ accountType: 'depository', provider: 'teller' })
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(health.plaid);
+console.log(transactions.data);
 ```
 
 ### Making custom/undocumented requests
@@ -252,9 +264,12 @@ const midday = new Midday({
 });
 
 // Override per-request:
-await midday.health.retrieve({
-  httpAgent: new http.Agent({ keepAlive: false }),
-});
+await midday.transactions.list(
+  { accountType: 'depository', provider: 'teller' },
+  {
+    httpAgent: new http.Agent({ keepAlive: false }),
+  },
+);
 ```
 
 ## Semantic versioning
