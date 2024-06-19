@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { toFile, type ResponseLike } from '@midday/engine/uploads';
-import { File } from '@midday/engine/_shims/index';
+import { toFile, type ResponseLike } from '@midday-ai/engine/uploads';
+import { File } from '@midday-ai/engine/_shims/index';
 
 class MyClass {
   name: string = 'foo';
