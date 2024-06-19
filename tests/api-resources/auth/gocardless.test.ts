@@ -11,7 +11,8 @@ const midday = new Midday({
 describe('resource gocardless', () => {
   test('exchange: only required params', async () => {
     const responsePromise = midday.auth.gocardless.exchange({
-      link: 'https://ob.gocardless.com/psd2/start/3fa85f64-5717-4562-b3fc-2c963f66afa6/REVOLUT_REVOGB21',
+      institutionId: 'REVOLUT_REVOGB21',
+      transactionTotalDays: '90',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -24,13 +25,16 @@ describe('resource gocardless', () => {
 
   test('exchange: required and optional params', async () => {
     const response = await midday.auth.gocardless.exchange({
-      link: 'https://ob.gocardless.com/psd2/start/3fa85f64-5717-4562-b3fc-2c963f66afa6/REVOLUT_REVOGB21',
+      institutionId: 'REVOLUT_REVOGB21',
+      transactionTotalDays: '90',
     });
   });
 
   test('link: only required params', async () => {
     const responsePromise = midday.auth.gocardless.link({
-      link: 'https://ob.gocardless.com/psd2/start/3fa85f64-5717-4562-b3fc-2c963f66afa6/REVOLUT_REVOGB21',
+      agreement: '2dea1b84-97b0-4cb4-8805-302c227587c8',
+      institutionId: 'REVOLUT_REVOGB21',
+      redirect: 'http://www.yourwebpage.com',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -43,7 +47,9 @@ describe('resource gocardless', () => {
 
   test('link: required and optional params', async () => {
     const response = await midday.auth.gocardless.link({
-      link: 'https://ob.gocardless.com/psd2/start/3fa85f64-5717-4562-b3fc-2c963f66afa6/REVOLUT_REVOGB21',
+      agreement: '2dea1b84-97b0-4cb4-8805-302c227587c8',
+      institutionId: 'REVOLUT_REVOGB21',
+      redirect: 'http://www.yourwebpage.com',
     });
   });
 });

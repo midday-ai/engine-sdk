@@ -25,14 +25,14 @@ import Midday from '@midday-ai/engine';
 const midday = new Midday();
 
 async function main() {
-  const transactions = await midday.transactions.list({
+  const transactionListResponse = await midday.transactions.list({
     accountType: 'credit',
     provider: 'teller',
     accessToken: 'token-123',
     accountId: '5341343-4234-4c65-815c-t234213442',
   });
 
-  console.log(transactions.data);
+  console.log(transactionListResponse.data);
 }
 
 main();
@@ -49,7 +49,7 @@ import Midday from '@midday-ai/engine';
 const midday = new Midday();
 
 async function main() {
-  const health: Midday.Health = await midday.health.retrieve();
+  const healthRetrieveResponse: Midday.HealthRetrieveResponse = await midday.health.retrieve();
 }
 
 main();
@@ -66,7 +66,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const health = await midday.health.retrieve().catch(async (err) => {
+  const healthRetrieveResponse = await midday.health.retrieve().catch(async (err) => {
     if (err instanceof Midday.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -151,9 +151,9 @@ const response = await midday.health.retrieve().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: health, response: raw } = await midday.health.retrieve().withResponse();
+const { data: healthRetrieveResponse, response: raw } = await midday.health.retrieve().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(health.plaid);
+console.log(healthRetrieveResponse.plaid);
 ```
 
 ### Making custom/undocumented requests
