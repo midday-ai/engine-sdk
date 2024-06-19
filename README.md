@@ -49,8 +49,7 @@ import Midday from '@midday-ai/engine';
 const midday = new Midday();
 
 async function main() {
-  const params: Midday.TransactionListParams = { accountType: 'depository', provider: 'teller' };
-  const transactions: Midday.Transactions = await midday.transactions.list(params);
+  const health: Midday.Health = await midday.health.retrieve();
 }
 
 main();
@@ -67,17 +66,15 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const transactions = await midday.transactions
-    .list({ accountType: 'depository', provider: 'teller' })
-    .catch(async (err) => {
-      if (err instanceof Midday.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
+  const health = await midday.health.retrieve().catch(async (err) => {
+    if (err instanceof Midday.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 }
 
 main();
@@ -112,7 +109,7 @@ const midday = new Midday({
 });
 
 // Or, configure per-request:
-await midday.transactions.list({ accountType: 'depository', provider: 'teller' }, {
+await midday.health.retrieve({
   maxRetries: 5,
 });
 ```
@@ -129,7 +126,7 @@ const midday = new Midday({
 });
 
 // Override per-request:
-await midday.transactions.list({ accountType: 'depository', provider: 'teller' }, {
+await midday.health.retrieve({
   timeout: 5 * 1000,
 });
 ```
@@ -150,17 +147,13 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const midday = new Midday();
 
-const response = await midday.transactions
-  .list({ accountType: 'depository', provider: 'teller' })
-  .asResponse();
+const response = await midday.health.retrieve().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: transactions, response: raw } = await midday.transactions
-  .list({ accountType: 'depository', provider: 'teller' })
-  .withResponse();
+const { data: health, response: raw } = await midday.health.retrieve().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(transactions.data);
+console.log(health.plaid);
 ```
 
 ### Making custom/undocumented requests
@@ -264,12 +257,9 @@ const midday = new Midday({
 });
 
 // Override per-request:
-await midday.transactions.list(
-  { accountType: 'depository', provider: 'teller' },
-  {
-    httpAgent: new http.Agent({ keepAlive: false }),
-  },
-);
+await midday.health.retrieve({
+  httpAgent: new http.Agent({ keepAlive: false }),
+});
 ```
 
 ## Semantic versioning
