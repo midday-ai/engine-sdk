@@ -11,7 +11,7 @@ const midday = new Midday({
 describe('resource plaid', () => {
   test('exchange: only required params', async () => {
     const responsePromise = midday.auth.plaid.exchange({
-      link: 'https://ob.gocardless.com/psd2/start/3fa85f64-5717-4562-b3fc-2c963f66afa6/REVOLUT_REVOGB21',
+      token: 'ojwmef9823f892n9h98h2efoqed9823hdodfcoj13er92hef',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -24,13 +24,14 @@ describe('resource plaid', () => {
 
   test('exchange: required and optional params', async () => {
     const response = await midday.auth.plaid.exchange({
-      link: 'https://ob.gocardless.com/psd2/start/3fa85f64-5717-4562-b3fc-2c963f66afa6/REVOLUT_REVOGB21',
+      token: 'ojwmef9823f892n9h98h2efoqed9823hdodfcoj13er92hef',
     });
   });
 
   test('link: only required params', async () => {
     const responsePromise = midday.auth.plaid.link({
-      link: 'https://ob.gocardless.com/psd2/start/3fa85f64-5717-4562-b3fc-2c963f66afa6/REVOLUT_REVOGB21',
+      language: 'en',
+      userId: '9293961c-df93-4d6d-a2cc-fc3e353b2d10',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -43,7 +44,8 @@ describe('resource plaid', () => {
 
   test('link: required and optional params', async () => {
     const response = await midday.auth.plaid.link({
-      link: 'https://ob.gocardless.com/psd2/start/3fa85f64-5717-4562-b3fc-2c963f66afa6/REVOLUT_REVOGB21',
+      language: 'en',
+      userId: '9293961c-df93-4d6d-a2cc-fc3e353b2d10',
     });
   });
 });
