@@ -1,5 +1,5 @@
 {
-  "name": "@midday/engine",
+  "name": "@midday-ai/engine",
   "version": "0.1.0-alpha.1",
   "description": "The official TypeScript library for the Midday API",
   "author": "Midday <support@midday.ai>",
@@ -60,8 +60,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "@midday/engine": ".",
-    "@midday/engine/*": "./src/*"
+    "@midday-ai/engine": ".",
+    "@midday-ai/engine/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {
