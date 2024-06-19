@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@midday/engine/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "@midday/engine/*": ["src/*"],
-      "@midday/engine": ["src/index.ts"],
+      "@midday-ai/engine/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "@midday-ai/engine/*": ["src/*"],
+      "@midday-ai/engine": ["src/index.ts"],
     },
     "noEmit": true,
 
