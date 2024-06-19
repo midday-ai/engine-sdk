@@ -1,4 +1,4 @@
-import { APIClient } from '@midday/engine/core';
+import { APIClient } from '@midday-ai/engine/core';
 
 const { stringifyQuery } = APIClient.prototype as any;
 

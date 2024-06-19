@@ -1,5 +1,5 @@
-import { createResponseHeaders } from '@midday/engine/core';
-import { Headers } from '@midday/engine/_shims/index';
+import { createResponseHeaders } from '@midday-ai/engine/core';
+import { Headers } from '@midday-ai/engine/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters

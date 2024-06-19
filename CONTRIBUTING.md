@@ -55,12 +55,12 @@ cd engine-sdk
 # With yarn
 yarn link
 cd ../my-package
-yarn link @midday/engine
+yarn link @midday-ai/engine
 
 # With pnpm
 pnpm link --global
 cd ../my-package
-pnpm link -—global @midday/engine
+pnpm link -—global @midday-ai/engine
 ```
 
 ## Running tests

@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Midday from '@midday/engine';
+import Midday from '@midday-ai/engine';
 import { Response } from 'node-fetch';
 
 const midday = new Midday({

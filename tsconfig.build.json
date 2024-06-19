@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "@midday/engine/*": ["dist/src/*"],
-      "@midday/engine": ["dist/src/index.ts"],
+      "@midday-ai/engine/*": ["dist/src/*"],
+      "@midday-ai/engine": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,
