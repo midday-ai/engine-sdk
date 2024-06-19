@@ -180,21 +180,22 @@ export namespace Midday {
   export import RequestOptions = Core.RequestOptions;
 
   export import Transactions = API.Transactions;
+  export import TransactionListResponse = API.TransactionListResponse;
   export import TransactionListParams = API.TransactionListParams;
 
   export import Accounts = API.Accounts;
-  export import Account = API.Account;
+  export import AccountListResponse = API.AccountListResponse;
+  export import AccountBalanceResponse = API.AccountBalanceResponse;
   export import AccountListParams = API.AccountListParams;
   export import AccountBalanceParams = API.AccountBalanceParams;
 
   export import Institutions = API.Institutions;
-  export import Institution = API.Institution;
+  export import InstitutionSearchResponse = API.InstitutionSearchResponse;
 
   export import Auth = API.Auth;
 
   export import Health = API.Health;
-
-  export import Auth = API.Auth;
+  export import HealthRetrieveResponse = API.HealthRetrieveResponse;
 }
 
 export default Midday;

@@ -8,19 +8,15 @@ export class Institutions extends APIResource {
   /**
    * Search Institutions
    */
-  search(options?: Core.RequestOptions): Core.APIPromise<Institution> {
+  search(options?: Core.RequestOptions): Core.APIPromise<InstitutionSearchResponse> {
     return this._client.get('/institutions/search', options);
   }
 }
 
-export interface Institution {
-  id: string;
-
-  logo: string | null;
-
-  name: string;
+export interface InstitutionSearchResponse {
+  query: string;
 }
 
 export namespace Institutions {
-  export import Institution = InstitutionsAPI.Institution;
+  export import InstitutionSearchResponse = InstitutionsAPI.InstitutionSearchResponse;
 }
