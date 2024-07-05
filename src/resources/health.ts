@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@midday-ai/engine/core';
 import { APIResource } from '@midday-ai/engine/resource';
+import * as Core from '@midday-ai/engine/core';
 import * as HealthAPI from '@midday-ai/engine/resources/health';
 
 export class Health extends APIResource {
@@ -14,24 +14,30 @@ export class Health extends APIResource {
 }
 
 export interface HealthRetrieveResponse {
-  gocardless: HealthRetrieveResponse.Gocardless;
-
-  plaid: HealthRetrieveResponse.Plaid;
-
-  teller: HealthRetrieveResponse.Teller;
+  data: HealthRetrieveResponse.Data;
 }
 
 export namespace HealthRetrieveResponse {
-  export interface Gocardless {
-    health: boolean;
+  export interface Data {
+    gocardless: Data.Gocardless;
+
+    plaid: Data.Plaid;
+
+    teller: Data.Teller;
   }
 
-  export interface Plaid {
-    health: boolean;
-  }
+  export namespace Data {
+    export interface Gocardless {
+      healthy: boolean;
+    }
 
-  export interface Teller {
-    health: boolean;
+    export interface Plaid {
+      healthy: boolean;
+    }
+
+    export interface Teller {
+      healthy: boolean;
+    }
   }
 }
 

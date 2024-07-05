@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@midday-ai/engine/core';
 import { APIResource } from '@midday-ai/engine/resource';
+import * as Core from '@midday-ai/engine/core';
 import * as PlaidAPI from '@midday-ai/engine/resources/auth/plaid';
 
 export class Plaid extends APIResource {
@@ -21,13 +21,25 @@ export class Plaid extends APIResource {
 }
 
 export interface PlaidExchangeResponse {
-  access_token: string;
+  data: PlaidExchangeResponse.Data;
+}
+
+export namespace PlaidExchangeResponse {
+  export interface Data {
+    access_token: string;
+  }
 }
 
 export interface PlaidLinkResponse {
-  expiration: string;
+  data: PlaidLinkResponse.Data;
+}
 
-  link_token: string;
+export namespace PlaidLinkResponse {
+  export interface Data {
+    expiration: string;
+
+    link_token: string;
+  }
 }
 
 export interface PlaidExchangeParams {
