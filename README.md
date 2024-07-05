@@ -26,10 +26,10 @@ const midday = new Midday();
 
 async function main() {
   const transactionListResponse = await midday.transactions.list({
+    accountId: '5341343-4234-4c65-815c-t234213442',
     accountType: 'credit',
     provider: 'teller',
     accessToken: 'token-123',
-    accountId: '5341343-4234-4c65-815c-t234213442',
   });
 
   console.log(transactionListResponse.data);
@@ -153,7 +153,7 @@ console.log(response.statusText); // access the underlying Response object
 
 const { data: healthRetrieveResponse, response: raw } = await midday.health.retrieve().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(healthRetrieveResponse.plaid);
+console.log(healthRetrieveResponse.data);
 ```
 
 ### Making custom/undocumented requests

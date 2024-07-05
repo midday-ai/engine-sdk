@@ -11,8 +11,8 @@ const midday = new Midday({
 describe('resource gocardless', () => {
   test('exchange: only required params', async () => {
     const responsePromise = midday.auth.gocardless.exchange({
-      institutionId: 'REVOLUT_REVOGB21',
-      transactionTotalDays: '90',
+      institution_id: 'REVOLUT_REVOGB21',
+      transaction_total_days: 90,
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -25,15 +25,15 @@ describe('resource gocardless', () => {
 
   test('exchange: required and optional params', async () => {
     const response = await midday.auth.gocardless.exchange({
-      institutionId: 'REVOLUT_REVOGB21',
-      transactionTotalDays: '90',
+      institution_id: 'REVOLUT_REVOGB21',
+      transaction_total_days: 90,
     });
   });
 
   test('link: only required params', async () => {
     const responsePromise = midday.auth.gocardless.link({
       agreement: '2dea1b84-97b0-4cb4-8805-302c227587c8',
-      institutionId: 'REVOLUT_REVOGB21',
+      institution_id: 'REVOLUT_REVOGB21',
       redirect: 'http://www.yourwebpage.com',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -48,7 +48,7 @@ describe('resource gocardless', () => {
   test('link: required and optional params', async () => {
     const response = await midday.auth.gocardless.link({
       agreement: '2dea1b84-97b0-4cb4-8805-302c227587c8',
-      institutionId: 'REVOLUT_REVOGB21',
+      institution_id: 'REVOLUT_REVOGB21',
       redirect: 'http://www.yourwebpage.com',
     });
   });

@@ -10,7 +10,11 @@ const midday = new Midday({
 
 describe('resource transactions', () => {
   test('list: only required params', async () => {
-    const responsePromise = midday.transactions.list({ accountType: 'depository', provider: 'teller' });
+    const responsePromise = midday.transactions.list({
+      accountId: '5341343-4234-4c65-815c-t234213442',
+      accountType: 'depository',
+      provider: 'teller',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,11 +26,11 @@ describe('resource transactions', () => {
 
   test('list: required and optional params', async () => {
     const response = await midday.transactions.list({
+      accountId: '5341343-4234-4c65-815c-t234213442',
       accountType: 'depository',
       provider: 'teller',
       accessToken: 'token-123',
-      accountId: '5341343-4234-4c65-815c-t234213442',
-      latest: 'true',
+      latest: true,
     });
   });
 });
