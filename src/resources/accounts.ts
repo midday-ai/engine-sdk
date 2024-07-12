@@ -51,6 +51,10 @@ export namespace AccountListResponse {
       logo: string | null;
 
       name: string;
+
+      provider: 'teller' | 'plaid' | 'gocardless';
+
+      available_history?: number | null;
     }
   }
 }

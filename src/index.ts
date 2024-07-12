@@ -193,7 +193,6 @@ export namespace Midday {
   export import AccountBalanceParams = API.AccountBalanceParams;
 
   export import Institutions = API.Institutions;
-  export import InstitutionSearchResponse = API.InstitutionSearchResponse;
 
   export import Auth = API.Auth;
 
