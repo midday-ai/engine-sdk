@@ -2,12 +2,14 @@
 
 export {
   AccountListResponse,
+  AccountDeleteResponse,
   AccountBalanceResponse,
   AccountListParams,
+  AccountDeleteParams,
   AccountBalanceParams,
   Accounts,
 } from './accounts';
 export { Auth } from './auth/auth';
 export { HealthRetrieveResponse, Health } from './health';
-export { Institutions } from './institutions';
+export { InstitutionListResponse, InstitutionListParams, Institutions } from './institutions';
 export { TransactionListResponse, TransactionListParams, Transactions } from './transactions';
