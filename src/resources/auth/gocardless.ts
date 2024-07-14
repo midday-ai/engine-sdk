@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@midday-ai/engine/core';
 import { APIResource } from '@midday-ai/engine/resource';
+import * as Core from '@midday-ai/engine/core';
 import * as GocardlessAPI from '@midday-ai/engine/resources/auth/gocardless';
 
 export class Gocardless extends APIResource {
@@ -24,29 +24,41 @@ export class Gocardless extends APIResource {
 }
 
 export interface GocardlessExchangeResponse {
-  id: string;
+  data: GocardlessExchangeResponse.Data;
+}
 
-  access_valid_for_days: string;
+export namespace GocardlessExchangeResponse {
+  export interface Data {
+    id: string;
 
-  institutionId: string;
+    access_valid_for_days: number;
 
-  max_historical_days: string;
+    institution_id: string;
+
+    max_historical_days: number;
+  }
 }
 
 export interface GocardlessLinkResponse {
-  link: string;
+  data: GocardlessLinkResponse.Data;
+}
+
+export namespace GocardlessLinkResponse {
+  export interface Data {
+    link: string;
+  }
 }
 
 export interface GocardlessExchangeParams {
-  institutionId: string;
+  institution_id: string;
 
-  transactionTotalDays: string;
+  transaction_total_days: number;
 }
 
 export interface GocardlessLinkParams {
   agreement: string | null;
 
-  institutionId: string;
+  institution_id: string;
 
   redirect: string;
 }

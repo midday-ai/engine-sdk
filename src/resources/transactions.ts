@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@midday-ai/engine/core';
 import { APIResource } from '@midday-ai/engine/resource';
+import * as Core from '@midday-ai/engine/core';
 import * as TransactionsAPI from '@midday-ai/engine/resources/transactions';
 
 export class Transactions extends APIResource {
@@ -36,8 +36,6 @@ export namespace TransactionListResponse {
 
     description: string | null;
 
-    internal_id: string;
-
     method: string | null;
 
     name: string;
@@ -47,6 +45,11 @@ export namespace TransactionListResponse {
 }
 
 export interface TransactionListParams {
+  /**
+   * Get transactions by accountId
+   */
+  accountId: string;
+
   /**
    * Get transactions with the correct amount depending on credit or depository
    */
@@ -60,14 +63,9 @@ export interface TransactionListParams {
   accessToken?: string;
 
   /**
-   * Get transactions by accountId
-   */
-  accountId?: string;
-
-  /**
    * Get latest transactions
    */
-  latest?: string;
+  latest?: boolean;
 }
 
 export namespace Transactions {

@@ -22,14 +22,6 @@ Methods:
 
 # Institutions
 
-Types:
-
-- <code><a href="./src/resources/institutions.ts">InstitutionSearchResponse</a></code>
-
-Methods:
-
-- <code title="get /institutions/search">client.institutions.<a href="./src/resources/institutions.ts">search</a>() -> InstitutionSearchResponse</code>
-
 # Auth
 
 ## Gocardless

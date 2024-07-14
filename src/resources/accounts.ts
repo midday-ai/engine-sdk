@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from '@midday-ai/engine/core';
 import { APIResource } from '@midday-ai/engine/resource';
+import * as Core from '@midday-ai/engine/core';
 import * as AccountsAPI from '@midday-ai/engine/resources/accounts';
 
 export class Accounts extends APIResource {
@@ -35,11 +35,13 @@ export namespace AccountListResponse {
 
     enrollment_id: string | null;
 
-    institution: Data.Institution;
+    institution: Data.Institution | null;
 
     name: string;
 
     provider: 'teller' | 'plaid' | 'gocardless';
+
+    type: 'depository' | 'credit' | 'other_asset' | 'loan' | 'other_liability';
   }
 
   export namespace Data {
@@ -49,31 +51,23 @@ export namespace AccountListResponse {
       logo: string | null;
 
       name: string;
+
+      provider: 'teller' | 'plaid' | 'gocardless';
+
+      available_history?: number | null;
     }
   }
 }
 
 export interface AccountBalanceResponse {
-  id: string;
-
-  currency: string;
-
-  enrollment_id: string | null;
-
-  institution: AccountBalanceResponse.Institution;
-
-  name: string;
-
-  provider: 'teller' | 'plaid' | 'gocardless';
+  data: AccountBalanceResponse.Data | null;
 }
 
 export namespace AccountBalanceResponse {
-  export interface Institution {
-    id: string;
+  export interface Data {
+    amount: number;
 
-    logo: string | null;
-
-    name: string;
+    currency: string;
   }
 }
 
@@ -102,27 +96,17 @@ export interface AccountListParams {
 }
 
 export interface AccountBalanceParams {
-  provider: 'teller' | 'plaid' | 'gocardless';
-
   /**
-   * GoCardLess account id
+   * Account id
    */
-  id?: string;
+  id: string;
+
+  provider: 'teller' | 'plaid' | 'gocardless';
 
   /**
    * Teller & Plaid access token
    */
   accessToken?: string;
-
-  /**
-   * GoCardLess country code
-   */
-  countryCode?: string;
-
-  /**
-   * Plaid institution id
-   */
-  institutionId?: string;
 }
 
 export namespace Accounts {
