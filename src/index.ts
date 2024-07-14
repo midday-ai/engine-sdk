@@ -8,6 +8,11 @@ import * as API from '@midday-ai/engine/resources/index';
 
 export interface ClientOptions {
   /**
+   * Defaults to process.env['MIDDAY_ENGINE_API_KEY'].
+   */
+  bearerToken?: string | undefined;
+
+  /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
    * Defaults to process.env['MIDDAY_BASE_URL'].
@@ -68,11 +73,14 @@ export interface ClientOptions {
  * API Client for interfacing with the Midday API.
  */
 export class Midday extends Core.APIClient {
+  bearerToken: string;
+
   private _options: ClientOptions;
 
   /**
    * API Client for interfacing with the Midday API.
    *
+   * @param {string | undefined} [opts.bearerToken=process.env['MIDDAY_ENGINE_API_KEY'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['MIDDAY_BASE_URL'] ?? https://engine.midday.ai] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
@@ -81,8 +89,19 @@ export class Midday extends Core.APIClient {
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
-  constructor({ baseURL = Core.readEnv('MIDDAY_BASE_URL'), ...opts }: ClientOptions = {}) {
+  constructor({
+    baseURL = Core.readEnv('MIDDAY_BASE_URL'),
+    bearerToken = Core.readEnv('MIDDAY_ENGINE_API_KEY'),
+    ...opts
+  }: ClientOptions = {}) {
+    if (bearerToken === undefined) {
+      throw new Errors.MiddayError(
+        "The MIDDAY_ENGINE_API_KEY environment variable is missing or empty; either provide it, or instantiate the Midday client with an bearerToken option, like new Midday({ bearerToken: 'My Bearer Token' }).",
+      );
+    }
+
     const options: ClientOptions = {
+      bearerToken,
       ...opts,
       baseURL: baseURL || `https://engine.midday.ai`,
     };
@@ -96,6 +115,8 @@ export class Midday extends Core.APIClient {
     });
 
     this._options = options;
+
+    this.bearerToken = bearerToken;
   }
 
   transactions: API.Transactions = new API.Transactions(this);
@@ -113,6 +134,10 @@ export class Midday extends Core.APIClient {
       ...super.defaultHeaders(opts),
       ...this._options.defaultHeaders,
     };
+  }
+
+  protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
+    return { Authorization: `Bearer ${this.bearerToken}` };
   }
 
   static Midday = this;

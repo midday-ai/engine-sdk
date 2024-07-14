@@ -3,7 +3,10 @@
 import Midday from '@midday-ai/engine';
 import { Response } from 'node-fetch';
 
-const midday = new Midday({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
+const midday = new Midday({
+  bearerToken: 'My Bearer Token',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+});
 
 describe('resource health', () => {
   test('retrieve', async () => {
