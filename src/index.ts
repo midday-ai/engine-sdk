@@ -188,11 +188,15 @@ export namespace Midday {
 
   export import Accounts = API.Accounts;
   export import AccountListResponse = API.AccountListResponse;
+  export import AccountDeleteResponse = API.AccountDeleteResponse;
   export import AccountBalanceResponse = API.AccountBalanceResponse;
   export import AccountListParams = API.AccountListParams;
+  export import AccountDeleteParams = API.AccountDeleteParams;
   export import AccountBalanceParams = API.AccountBalanceParams;
 
   export import Institutions = API.Institutions;
+  export import InstitutionListResponse = API.InstitutionListResponse;
+  export import InstitutionListParams = API.InstitutionListParams;
 
   export import Auth = API.Auth;
 

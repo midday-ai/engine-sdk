@@ -13,14 +13,24 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/accounts.ts">AccountListResponse</a></code>
+- <code><a href="./src/resources/accounts.ts">AccountDeleteResponse</a></code>
 - <code><a href="./src/resources/accounts.ts">AccountBalanceResponse</a></code>
 
 Methods:
 
 - <code title="get /accounts">client.accounts.<a href="./src/resources/accounts.ts">list</a>({ ...params }) -> AccountListResponse</code>
+- <code title="delete /accounts">client.accounts.<a href="./src/resources/accounts.ts">delete</a>({ ...params }) -> AccountDeleteResponse</code>
 - <code title="get /accounts/balance">client.accounts.<a href="./src/resources/accounts.ts">balance</a>({ ...params }) -> AccountBalanceResponse</code>
 
 # Institutions
+
+Types:
+
+- <code><a href="./src/resources/institutions.ts">InstitutionListResponse</a></code>
+
+Methods:
+
+- <code title="get /institutions">client.institutions.<a href="./src/resources/institutions.ts">list</a>({ ...params }) -> InstitutionListResponse</code>
 
 # Auth
 
