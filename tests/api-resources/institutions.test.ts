@@ -5,13 +5,9 @@ import { Response } from 'node-fetch';
 
 const midday = new Midday({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
 
-describe('resource transactions', () => {
+describe('resource institutions', () => {
   test('list: only required params', async () => {
-    const responsePromise = midday.transactions.list({
-      accountId: '5341343-4234-4c65-815c-t234213442',
-      accountType: 'depository',
-      provider: 'teller',
-    });
+    const responsePromise = midday.institutions.list({ countryCode: 'BE' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,12 +18,6 @@ describe('resource transactions', () => {
   });
 
   test('list: required and optional params', async () => {
-    const response = await midday.transactions.list({
-      accountId: '5341343-4234-4c65-815c-t234213442',
-      accountType: 'depository',
-      provider: 'teller',
-      accessToken: 'token-123',
-      latest: true,
-    });
+    const response = await midday.institutions.list({ countryCode: 'BE', limit: '50', q: 'Swedbank' });
   });
 });

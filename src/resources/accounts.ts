@@ -13,6 +13,14 @@ export class Accounts extends APIResource {
   }
 
   /**
+   * Delete Accounts
+   */
+  delete(params: AccountDeleteParams, options?: Core.RequestOptions): Core.APIPromise<AccountDeleteResponse> {
+    const { accountId, provider, accessToken } = params;
+    return this._client.delete('/accounts', { query: { accountId, provider, accessToken }, ...options });
+  }
+
+  /**
    * Get Account Balance
    */
   balance(
@@ -59,6 +67,10 @@ export namespace AccountListResponse {
   }
 }
 
+export interface AccountDeleteResponse {
+  success: boolean;
+}
+
 export interface AccountBalanceResponse {
   data: AccountBalanceResponse.Data | null;
 }
@@ -95,6 +107,20 @@ export interface AccountListParams {
   institutionId?: string;
 }
 
+export interface AccountDeleteParams {
+  /**
+   * Account id (GoCardLess)
+   */
+  accountId: string;
+
+  provider: 'teller' | 'plaid' | 'gocardless';
+
+  /**
+   * Teller & Plaid access token
+   */
+  accessToken?: string;
+}
+
 export interface AccountBalanceParams {
   /**
    * Account id
@@ -111,7 +137,9 @@ export interface AccountBalanceParams {
 
 export namespace Accounts {
   export import AccountListResponse = AccountsAPI.AccountListResponse;
+  export import AccountDeleteResponse = AccountsAPI.AccountDeleteResponse;
   export import AccountBalanceResponse = AccountsAPI.AccountBalanceResponse;
   export import AccountListParams = AccountsAPI.AccountListParams;
+  export import AccountDeleteParams = AccountsAPI.AccountDeleteParams;
   export import AccountBalanceParams = AccountsAPI.AccountBalanceParams;
 }
