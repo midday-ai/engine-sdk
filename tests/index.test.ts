@@ -178,14 +178,14 @@ describe('instantiate client', () => {
 
   test('with environment variable arguments', () => {
     // set options via env var
-    process.env['MIDDAY_BEARER_TOKEN'] = 'My Bearer Token';
+    process.env['MIDDAY_ENGINE_API_KEY'] = 'My Bearer Token';
     const client = new Midday();
     expect(client.bearerToken).toBe('My Bearer Token');
   });
 
   test('with overriden environment variable arguments', () => {
     // set options via env var
-    process.env['MIDDAY_BEARER_TOKEN'] = 'another My Bearer Token';
+    process.env['MIDDAY_ENGINE_API_KEY'] = 'another My Bearer Token';
     const client = new Midday({ bearerToken: 'My Bearer Token' });
     expect(client.bearerToken).toBe('My Bearer Token');
   });
