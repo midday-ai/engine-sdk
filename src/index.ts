@@ -8,7 +8,7 @@ import * as API from '@midday-ai/engine/resources/index';
 
 export interface ClientOptions {
   /**
-   * Defaults to process.env['MIDDAY_BEARER_TOKEN'].
+   * Defaults to process.env['MIDDAY_API_KEY'].
    */
   bearerToken?: string | undefined;
 
@@ -80,7 +80,7 @@ export class Midday extends Core.APIClient {
   /**
    * API Client for interfacing with the Midday API.
    *
-   * @param {string | undefined} [opts.bearerToken=process.env['MIDDAY_BEARER_TOKEN'] ?? undefined]
+   * @param {string | undefined} [opts.bearerToken=process.env['MIDDAY_API_KEY'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['MIDDAY_BASE_URL'] ?? https://engine.midday.ai] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
@@ -91,12 +91,12 @@ export class Midday extends Core.APIClient {
    */
   constructor({
     baseURL = Core.readEnv('MIDDAY_BASE_URL'),
-    bearerToken = Core.readEnv('MIDDAY_BEARER_TOKEN'),
+    bearerToken = Core.readEnv('MIDDAY_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
     if (bearerToken === undefined) {
       throw new Errors.MiddayError(
-        "The MIDDAY_BEARER_TOKEN environment variable is missing or empty; either provide it, or instantiate the Midday client with an bearerToken option, like new Midday({ bearerToken: 'My Bearer Token' }).",
+        "The MIDDAY_API_KEY environment variable is missing or empty; either provide it, or instantiate the Midday client with an bearerToken option, like new Midday({ bearerToken: 'My Bearer Token' }).",
       );
     }
 
