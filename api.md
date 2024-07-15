@@ -40,11 +40,13 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/auth/gocardless.ts">GocardlessAgreement</a></code>
 - <code><a href="./src/resources/auth/gocardless.ts">GocardlessExchangeResponse</a></code>
 - <code><a href="./src/resources/auth/gocardless.ts">GocardlessLinkResponse</a></code>
 
 Methods:
 
+- <code title="post /auth/gocardless/agreement">client.auth.gocardless.<a href="./src/resources/auth/gocardless.ts">agreement</a>({ ...params }) -> GocardlessAgreement</code>
 - <code title="post /auth/gocardless/exchange">client.auth.gocardless.<a href="./src/resources/auth/gocardless.ts">exchange</a>({ ...params }) -> GocardlessExchangeResponse</code>
 - <code title="post /auth/gocardless/link">client.auth.gocardless.<a href="./src/resources/auth/gocardless.ts">link</a>({ ...params }) -> GocardlessLinkResponse</code>
 
