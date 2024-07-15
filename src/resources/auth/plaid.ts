@@ -8,33 +8,33 @@ export class Plaid extends APIResource {
   /**
    * Exchange token (Plaid)
    */
-  exchange(body: PlaidExchangeParams, options?: Core.RequestOptions): Core.APIPromise<PlaidExchangeResponse> {
+  exchange(body: PlaidExchangeParams, options?: Core.RequestOptions): Core.APIPromise<PlaidExchange> {
     return this._client.post('/auth/plaid/exchange', { body, ...options });
   }
 
   /**
    * Auth Link (Plaid)
    */
-  link(body: PlaidLinkParams, options?: Core.RequestOptions): Core.APIPromise<PlaidLinkResponse> {
+  link(body: PlaidLinkParams, options?: Core.RequestOptions): Core.APIPromise<PlaidLink> {
     return this._client.post('/auth/plaid/link', { body, ...options });
   }
 }
 
-export interface PlaidExchangeResponse {
-  data: PlaidExchangeResponse.Data;
+export interface PlaidExchange {
+  data: PlaidExchange.Data;
 }
 
-export namespace PlaidExchangeResponse {
+export namespace PlaidExchange {
   export interface Data {
     access_token: string;
   }
 }
 
-export interface PlaidLinkResponse {
-  data: PlaidLinkResponse.Data;
+export interface PlaidLink {
+  data: PlaidLink.Data;
 }
 
-export namespace PlaidLinkResponse {
+export namespace PlaidLink {
   export interface Data {
     expiration: string;
 
@@ -53,8 +53,8 @@ export interface PlaidLinkParams {
 }
 
 export namespace Plaid {
-  export import PlaidExchangeResponse = PlaidAPI.PlaidExchangeResponse;
-  export import PlaidLinkResponse = PlaidAPI.PlaidLinkResponse;
+  export import PlaidExchange = PlaidAPI.PlaidExchange;
+  export import PlaidLink = PlaidAPI.PlaidLink;
   export import PlaidExchangeParams = PlaidAPI.PlaidExchangeParams;
   export import PlaidLinkParams = PlaidAPI.PlaidLinkParams;
 }

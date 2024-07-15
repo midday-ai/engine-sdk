@@ -165,6 +165,19 @@ describe('instantiate client', () => {
       const client = new Midday({ bearerToken: 'My Bearer Token' });
       expect(client.baseURL).toEqual('https://engine.midday.ai');
     });
+
+    test('env variable with environment', () => {
+      process.env['MIDDAY_BASE_URL'] = 'https://example.com/from_env';
+
+      expect(
+        () => new Midday({ bearerToken: 'My Bearer Token', environment: 'production' }),
+      ).toThrowErrorMatchingInlineSnapshot(
+        `"Ambiguous URL; The \`baseURL\` option (or MIDDAY_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
+      );
+
+      const client = new Midday({ bearerToken: 'My Bearer Token', baseURL: null, environment: 'production' });
+      expect(client.baseURL).toEqual('https://engine.midday.ai');
+    });
   });
 
   test('maxRetries option is correctly set', () => {

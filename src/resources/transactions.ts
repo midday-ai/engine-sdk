@@ -8,19 +8,16 @@ export class Transactions extends APIResource {
   /**
    * Get transactions
    */
-  list(
-    query: TransactionListParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<TransactionListResponse> {
+  list(query: TransactionListParams, options?: Core.RequestOptions): Core.APIPromise<Transactions> {
     return this._client.get('/transactions', { query, ...options });
   }
 }
 
-export interface TransactionListResponse {
-  data: Array<TransactionListResponse.Data>;
+export interface Transactions {
+  data: Array<Transactions.Data>;
 }
 
-export namespace TransactionListResponse {
+export namespace Transactions {
   export interface Data {
     id: string;
 
@@ -69,6 +66,6 @@ export interface TransactionListParams {
 }
 
 export namespace Transactions {
-  export import TransactionListResponse = TransactionsAPI.TransactionListResponse;
+  export import Transactions = TransactionsAPI.Transactions;
   export import TransactionListParams = TransactionsAPI.TransactionListParams;
 }
