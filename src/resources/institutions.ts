@@ -14,6 +14,13 @@ export class Institutions extends APIResource {
   ): Core.APIPromise<InstitutionListResponse> {
     return this._client.get('/institutions', { query, ...options });
   }
+
+  /**
+   * Update Institution Usage
+   */
+  usage(options?: Core.RequestOptions): Core.APIPromise<InstitutionUsageResponse> {
+    return this._client.put('/institutions/:id/usage', options);
+  }
 }
 
 export interface InstitutionListResponse {
@@ -21,6 +28,24 @@ export interface InstitutionListResponse {
 }
 
 export namespace InstitutionListResponse {
+  export interface Data {
+    id: string;
+
+    logo: string | null;
+
+    name: string;
+
+    provider: 'teller' | 'plaid' | 'gocardless';
+
+    available_history?: number | null;
+  }
+}
+
+export interface InstitutionUsageResponse {
+  data: InstitutionUsageResponse.Data | null;
+}
+
+export namespace InstitutionUsageResponse {
   export interface Data {
     id: string;
 
@@ -85,5 +110,6 @@ export interface InstitutionListParams {
 
 export namespace Institutions {
   export import InstitutionListResponse = InstitutionsAPI.InstitutionListResponse;
+  export import InstitutionUsageResponse = InstitutionsAPI.InstitutionUsageResponse;
   export import InstitutionListParams = InstitutionsAPI.InstitutionListParams;
 }
