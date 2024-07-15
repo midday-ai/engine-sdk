@@ -2,8 +2,10 @@
 
 export { Auth } from './auth';
 export {
+  GocardlessAgreement,
   GocardlessExchangeResponse,
   GocardlessLinkResponse,
+  GocardlessAgreementParams,
   GocardlessExchangeParams,
   GocardlessLinkParams,
   Gocardless,

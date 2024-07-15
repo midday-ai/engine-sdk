@@ -9,6 +9,27 @@ const midday = new Midday({
 });
 
 describe('resource gocardless', () => {
+  test('agreement: only required params', async () => {
+    const responsePromise = midday.auth.gocardless.agreement({
+      institution_id: 'REVOLUT_REVOGB21',
+      transactionTotalDays: 90,
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('agreement: required and optional params', async () => {
+    const response = await midday.auth.gocardless.agreement({
+      institution_id: 'REVOLUT_REVOGB21',
+      transactionTotalDays: 90,
+    });
+  });
+
   test('exchange: only required params', async () => {
     const responsePromise = midday.auth.gocardless.exchange({
       institution_id: 'REVOLUT_REVOGB21',
