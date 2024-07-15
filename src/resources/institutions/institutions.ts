@@ -77,4 +77,5 @@ export namespace Institutions {
   export import InstitutionListParams = InstitutionsAPI.InstitutionListParams;
   export import Usage = UsageAPI.Usage;
   export import Institution = UsageAPI.Institution;
+  export import UsageUpdateResponse = UsageAPI.UsageUpdateResponse;
 }
