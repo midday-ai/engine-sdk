@@ -18,8 +18,8 @@ export class Institutions extends APIResource {
   /**
    * Update Institution Usage
    */
-  usage(options?: Core.RequestOptions): Core.APIPromise<InstitutionUsageResponse> {
-    return this._client.put('/institutions/:id/usage', options);
+  usage(id: string, options?: Core.RequestOptions): Core.APIPromise<InstitutionUsageResponse> {
+    return this._client.put(`/institutions/${id}/usage`, options);
   }
 }
 

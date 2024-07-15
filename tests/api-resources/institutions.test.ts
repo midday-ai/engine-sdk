@@ -25,7 +25,7 @@ describe('resource institutions', () => {
   });
 
   test('usage', async () => {
-    const responsePromise = midday.institutions.usage();
+    const responsePromise = midday.institutions.usage('STARLING_SRLGGB3L');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -37,8 +37,8 @@ describe('resource institutions', () => {
 
   test('usage: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(midday.institutions.usage({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Midday.NotFoundError,
-    );
+    await expect(
+      midday.institutions.usage('STARLING_SRLGGB3L', { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(Midday.NotFoundError);
   });
 });
