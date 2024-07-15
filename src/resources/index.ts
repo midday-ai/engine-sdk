@@ -10,5 +10,5 @@ export {
 } from './accounts';
 export { Auth } from './auth/auth';
 export { Health } from './health';
-export { Institutions, InstitutionListResponse, InstitutionListParams } from './institutions/institutions';
+export { Institutions, InstitutionListParams } from './institutions/institutions';
 export { Transactions, TransactionListParams } from './transactions';
