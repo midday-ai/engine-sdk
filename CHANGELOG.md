@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.13 (2024-07-15)
+
+Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#50](https://github.com/midday-ai/engine-sdk/issues/50)) ([a99ab5a](https://github.com/midday-ai/engine-sdk/commit/a99ab5a61a00244ede6d043cb094b1c62d90f19c))
+
 ## 0.1.0-alpha.12 (2024-07-15)
 
 Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
