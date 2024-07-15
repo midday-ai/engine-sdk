@@ -6,6 +6,16 @@ import * as GocardlessAPI from '@midday-ai/engine/resources/auth/gocardless';
 
 export class Gocardless extends APIResource {
   /**
+   * Agreement (GoCardLess)
+   */
+  agreement(
+    body: GocardlessAgreementParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<GocardlessAgreement> {
+    return this._client.post('/auth/gocardless/agreement', { body, ...options });
+  }
+
+  /**
    * Exchange token (GoCardLess)
    */
   exchange(
@@ -20,6 +30,26 @@ export class Gocardless extends APIResource {
    */
   link(body: GocardlessLinkParams, options?: Core.RequestOptions): Core.APIPromise<GocardlessLinkResponse> {
     return this._client.post('/auth/gocardless/link', { body, ...options });
+  }
+}
+
+export interface GocardlessAgreement {
+  data: GocardlessAgreement.Data;
+}
+
+export namespace GocardlessAgreement {
+  export interface Data {
+    id: string;
+
+    accepted: boolean;
+
+    access_valid_for_days: number;
+
+    created: string;
+
+    institution_id: string;
+
+    max_historical_days: number;
   }
 }
 
@@ -49,6 +79,12 @@ export namespace GocardlessLinkResponse {
   }
 }
 
+export interface GocardlessAgreementParams {
+  institution_id: string;
+
+  transactionTotalDays: number;
+}
+
 export interface GocardlessExchangeParams {
   institution_id: string;
 
@@ -64,8 +100,10 @@ export interface GocardlessLinkParams {
 }
 
 export namespace Gocardless {
+  export import GocardlessAgreement = GocardlessAPI.GocardlessAgreement;
   export import GocardlessExchangeResponse = GocardlessAPI.GocardlessExchangeResponse;
   export import GocardlessLinkResponse = GocardlessAPI.GocardlessLinkResponse;
+  export import GocardlessAgreementParams = GocardlessAPI.GocardlessAgreementParams;
   export import GocardlessExchangeParams = GocardlessAPI.GocardlessExchangeParams;
   export import GocardlessLinkParams = GocardlessAPI.GocardlessLinkParams;
 }

@@ -112,4 +112,7 @@ export namespace Institutions {
   export import InstitutionListResponse = InstitutionsAPI.InstitutionListResponse;
   export import InstitutionUsageResponse = InstitutionsAPI.InstitutionUsageResponse;
   export import InstitutionListParams = InstitutionsAPI.InstitutionListParams;
+  export import Usage = UsageAPI.Usage;
+  export import Institution = UsageAPI.Institution;
+  export import UsageUpdateResponse = UsageAPI.UsageUpdateResponse;
 }
