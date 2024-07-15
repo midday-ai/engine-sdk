@@ -3,6 +3,7 @@
 import { APIResource } from '@midday-ai/engine/resource';
 import * as Core from '@midday-ai/engine/core';
 import * as AccountsAPI from '@midday-ai/engine/resources/accounts';
+import * as UsageAPI from '@midday-ai/engine/resources/institutions/usage';
 
 export class Accounts extends APIResource {
   /**
@@ -43,27 +44,13 @@ export namespace AccountListResponse {
 
     enrollment_id: string | null;
 
-    institution: Data.Institution | null;
+    institution: UsageAPI.Institution | null;
 
     name: string;
 
     provider: 'teller' | 'plaid' | 'gocardless';
 
     type: 'depository' | 'credit' | 'other_asset' | 'loan' | 'other_liability';
-  }
-
-  export namespace Data {
-    export interface Institution {
-      id: string;
-
-      logo: string | null;
-
-      name: string;
-
-      provider: 'teller' | 'plaid' | 'gocardless';
-
-      available_history?: number | null;
-    }
   }
 }
 
