@@ -19,8 +19,10 @@ export class Institutions extends APIResource {
   }
 }
 
+export type Institutions = Array<UsageAPI.Institution | null>;
+
 export interface InstitutionListResponse {
-  data: Array<UsageAPI.Institution | null>;
+  data: Institutions;
 }
 
 export interface InstitutionListParams {
@@ -73,6 +75,7 @@ export interface InstitutionListParams {
 }
 
 export namespace Institutions {
+  export import Institutions = InstitutionsAPI.Institutions;
   export import InstitutionListResponse = InstitutionsAPI.InstitutionListResponse;
   export import InstitutionListParams = InstitutionsAPI.InstitutionListParams;
   export import Usage = UsageAPI.Usage;

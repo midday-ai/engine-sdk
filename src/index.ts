@@ -6,11 +6,26 @@ import { type Agent } from './_shims/index';
 import * as Core from '@midday-ai/engine/core';
 import * as API from '@midday-ai/engine/resources/index';
 
+const environments = {
+  production: 'https://engine.midday.ai',
+  development: 'http://localhost:3002',
+};
+type Environment = keyof typeof environments;
+
 export interface ClientOptions {
   /**
    * Defaults to process.env['MIDDAY_ENGINE_API_KEY'].
    */
   bearerToken?: string | undefined;
+
+  /**
+   * Specifies the environment to use for the API.
+   *
+   * Each environment maps to a different base URL:
+   * - `production` corresponds to `https://engine.midday.ai`
+   * - `development` corresponds to `http://localhost:3002`
+   */
+  environment?: Environment;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -81,6 +96,7 @@ export class Midday extends Core.APIClient {
    * API Client for interfacing with the Midday API.
    *
    * @param {string | undefined} [opts.bearerToken=process.env['MIDDAY_ENGINE_API_KEY'] ?? undefined]
+   * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
    * @param {string} [opts.baseURL=process.env['MIDDAY_BASE_URL'] ?? https://engine.midday.ai] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
@@ -103,11 +119,18 @@ export class Midday extends Core.APIClient {
     const options: ClientOptions = {
       bearerToken,
       ...opts,
-      baseURL: baseURL || `https://engine.midday.ai`,
+      baseURL,
+      environment: opts.environment ?? 'production',
     };
 
+    if (baseURL && opts.environment) {
+      throw new Errors.MiddayError(
+        'Ambiguous URL; The `baseURL` option (or MIDDAY_BASE_URL env var) and the `environment` option are given. If you want to use the environment you must pass baseURL: null',
+      );
+    }
+
     super({
-      baseURL: options.baseURL!,
+      baseURL: options.baseURL || environments[options.environment || 'production'],
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
@@ -183,13 +206,11 @@ export namespace Midday {
   export import RequestOptions = Core.RequestOptions;
 
   export import Transactions = API.Transactions;
-  export import TransactionListResponse = API.TransactionListResponse;
   export import TransactionListParams = API.TransactionListParams;
 
   export import Accounts = API.Accounts;
-  export import AccountListResponse = API.AccountListResponse;
+  export import AccountBalance = API.AccountBalance;
   export import AccountDeleteResponse = API.AccountDeleteResponse;
-  export import AccountBalanceResponse = API.AccountBalanceResponse;
   export import AccountListParams = API.AccountListParams;
   export import AccountDeleteParams = API.AccountDeleteParams;
   export import AccountBalanceParams = API.AccountBalanceParams;
@@ -201,7 +222,6 @@ export namespace Midday {
   export import Auth = API.Auth;
 
   export import Health = API.Health;
-  export import HealthRetrieveResponse = API.HealthRetrieveResponse;
 }
 
 export default Midday;

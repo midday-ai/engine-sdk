@@ -1,15 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export {
-  AccountListResponse,
+  AccountBalance,
+  Accounts,
   AccountDeleteResponse,
-  AccountBalanceResponse,
   AccountListParams,
   AccountDeleteParams,
   AccountBalanceParams,
-  Accounts,
 } from './accounts';
 export { Auth } from './auth/auth';
-export { HealthRetrieveResponse, Health } from './health';
-export { InstitutionListResponse, InstitutionListParams, Institutions } from './institutions/institutions';
-export { TransactionListResponse, TransactionListParams, Transactions } from './transactions';
+export { Health } from './health';
+export { Institutions, InstitutionListResponse, InstitutionListParams } from './institutions/institutions';
+export { Transactions, TransactionListParams } from './transactions';
