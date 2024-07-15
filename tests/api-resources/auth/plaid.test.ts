@@ -28,11 +28,8 @@ describe('resource plaid', () => {
     });
   });
 
-  test('link: only required params', async () => {
-    const responsePromise = midday.auth.plaid.link({
-      language: 'en',
-      userId: '9293961c-df93-4d6d-a2cc-fc3e353b2d10',
-    });
+  test('link', async () => {
+    const responsePromise = midday.auth.plaid.link();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -42,10 +39,20 @@ describe('resource plaid', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('link: required and optional params', async () => {
-    const response = await midday.auth.plaid.link({
-      language: 'en',
-      userId: '9293961c-df93-4d6d-a2cc-fc3e353b2d10',
-    });
+  test('link: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(midday.auth.plaid.link({ path: '/_stainless_unknown_path' })).rejects.toThrow(
+      Midday.NotFoundError,
+    );
+  });
+
+  test('link: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      midday.auth.plaid.link(
+        { language: 'en', userId: '9293961c-df93-4d6d-a2cc-fc3e353b2d10' },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Midday.NotFoundError);
   });
 });
