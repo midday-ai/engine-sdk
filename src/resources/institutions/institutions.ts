@@ -11,18 +11,13 @@ export class Institutions extends APIResource {
   /**
    * Get Institutions
    */
-  list(
-    query: InstitutionListParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<InstitutionListResponse> {
+  list(query: InstitutionListParams, options?: Core.RequestOptions): Core.APIPromise<Institutions> {
     return this._client.get('/institutions', { query, ...options });
   }
 }
 
-export type Institutions = Array<UsageAPI.Institution | null>;
-
-export interface InstitutionListResponse {
-  data: Institutions;
+export interface Institutions {
+  data: Array<UsageAPI.Institution | null>;
 }
 
 export interface InstitutionListParams {
@@ -76,7 +71,6 @@ export interface InstitutionListParams {
 
 export namespace Institutions {
   export import Institutions = InstitutionsAPI.Institutions;
-  export import InstitutionListResponse = InstitutionsAPI.InstitutionListResponse;
   export import InstitutionListParams = InstitutionsAPI.InstitutionListParams;
   export import Usage = UsageAPI.Usage;
   export import Institution = UsageAPI.Institution;
