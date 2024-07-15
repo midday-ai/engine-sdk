@@ -27,10 +27,12 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/institutions.ts">InstitutionListResponse</a></code>
+- <code><a href="./src/resources/institutions.ts">InstitutionUsageResponse</a></code>
 
 Methods:
 
 - <code title="get /institutions">client.institutions.<a href="./src/resources/institutions.ts">list</a>({ ...params }) -> InstitutionListResponse</code>
+- <code title="put /institutions/:id/usage">client.institutions.<a href="./src/resources/institutions.ts">usage</a>() -> InstitutionUsageResponse</code>
 
 # Auth
 
