@@ -2,9 +2,12 @@
 
 import { APIResource } from '@midday-ai/engine/resource';
 import * as Core from '@midday-ai/engine/core';
-import * as InstitutionsAPI from '@midday-ai/engine/resources/institutions';
+import * as InstitutionsAPI from '@midday-ai/engine/resources/institutions/institutions';
+import * as UsageAPI from '@midday-ai/engine/resources/institutions/usage';
 
 export class Institutions extends APIResource {
+  usage: UsageAPI.Usage = new UsageAPI.Usage(this._client);
+
   /**
    * Get Institutions
    */
@@ -14,49 +17,12 @@ export class Institutions extends APIResource {
   ): Core.APIPromise<InstitutionListResponse> {
     return this._client.get('/institutions', { query, ...options });
   }
-
-  /**
-   * Update Institution Usage
-   */
-  usage(id: string, options?: Core.RequestOptions): Core.APIPromise<InstitutionUsageResponse> {
-    return this._client.put(`/institutions/${id}/usage`, options);
-  }
 }
+
+export type Institutions = Array<UsageAPI.Institution | null>;
 
 export interface InstitutionListResponse {
-  data: Array<InstitutionListResponse.Data | null>;
-}
-
-export namespace InstitutionListResponse {
-  export interface Data {
-    id: string;
-
-    logo: string | null;
-
-    name: string;
-
-    provider: 'teller' | 'plaid' | 'gocardless';
-
-    available_history?: number | null;
-  }
-}
-
-export interface InstitutionUsageResponse {
-  data: InstitutionUsageResponse.Data | null;
-}
-
-export namespace InstitutionUsageResponse {
-  export interface Data {
-    id: string;
-
-    logo: string | null;
-
-    name: string;
-
-    provider: 'teller' | 'plaid' | 'gocardless';
-
-    available_history?: number | null;
-  }
+  data: Institutions;
 }
 
 export interface InstitutionListParams {
@@ -109,8 +75,8 @@ export interface InstitutionListParams {
 }
 
 export namespace Institutions {
+  export import Institutions = InstitutionsAPI.Institutions;
   export import InstitutionListResponse = InstitutionsAPI.InstitutionListResponse;
-  export import InstitutionUsageResponse = InstitutionsAPI.InstitutionUsageResponse;
   export import InstitutionListParams = InstitutionsAPI.InstitutionListParams;
   export import Usage = UsageAPI.Usage;
   export import Institution = UsageAPI.Institution;

@@ -3,12 +3,13 @@
 import { APIResource } from '@midday-ai/engine/resource';
 import * as Core from '@midday-ai/engine/core';
 import * as AccountsAPI from '@midday-ai/engine/resources/accounts';
+import * as UsageAPI from '@midday-ai/engine/resources/institutions/usage';
 
 export class Accounts extends APIResource {
   /**
    * Get Accounts
    */
-  list(query: AccountListParams, options?: Core.RequestOptions): Core.APIPromise<AccountListResponse> {
+  list(query: AccountListParams, options?: Core.RequestOptions): Core.APIPromise<Accounts> {
     return this._client.get('/accounts', { query, ...options });
   }
 
@@ -23,19 +24,28 @@ export class Accounts extends APIResource {
   /**
    * Get Account Balance
    */
-  balance(
-    query: AccountBalanceParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<AccountBalanceResponse> {
+  balance(query: AccountBalanceParams, options?: Core.RequestOptions): Core.APIPromise<AccountBalance> {
     return this._client.get('/accounts/balance', { query, ...options });
   }
 }
 
-export interface AccountListResponse {
-  data: Array<AccountListResponse.Data>;
+export interface AccountBalance {
+  data: AccountBalance.Data | null;
 }
 
-export namespace AccountListResponse {
+export namespace AccountBalance {
+  export interface Data {
+    amount: number;
+
+    currency: string;
+  }
+}
+
+export interface Accounts {
+  data: Array<Accounts.Data>;
+}
+
+export namespace Accounts {
   export interface Data {
     id: string;
 
@@ -43,7 +53,7 @@ export namespace AccountListResponse {
 
     enrollment_id: string | null;
 
-    institution: Data.Institution | null;
+    institution: UsageAPI.Institution | null;
 
     name: string;
 
@@ -51,36 +61,10 @@ export namespace AccountListResponse {
 
     type: 'depository' | 'credit' | 'other_asset' | 'loan' | 'other_liability';
   }
-
-  export namespace Data {
-    export interface Institution {
-      id: string;
-
-      logo: string | null;
-
-      name: string;
-
-      provider: 'teller' | 'plaid' | 'gocardless';
-
-      available_history?: number | null;
-    }
-  }
 }
 
 export interface AccountDeleteResponse {
   success: boolean;
-}
-
-export interface AccountBalanceResponse {
-  data: AccountBalanceResponse.Data | null;
-}
-
-export namespace AccountBalanceResponse {
-  export interface Data {
-    amount: number;
-
-    currency: string;
-  }
 }
 
 export interface AccountListParams {
@@ -136,9 +120,9 @@ export interface AccountBalanceParams {
 }
 
 export namespace Accounts {
-  export import AccountListResponse = AccountsAPI.AccountListResponse;
+  export import AccountBalance = AccountsAPI.AccountBalance;
+  export import Accounts = AccountsAPI.Accounts;
   export import AccountDeleteResponse = AccountsAPI.AccountDeleteResponse;
-  export import AccountBalanceResponse = AccountsAPI.AccountBalanceResponse;
   export import AccountListParams = AccountsAPI.AccountListParams;
   export import AccountDeleteParams = AccountsAPI.AccountDeleteParams;
   export import AccountBalanceParams = AccountsAPI.AccountBalanceParams;
