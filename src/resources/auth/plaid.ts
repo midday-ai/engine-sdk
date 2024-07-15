@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '@midday-ai/engine/resource';
+import { isRequestOptions } from '@midday-ai/engine/core';
 import * as Core from '@midday-ai/engine/core';
 import * as PlaidAPI from '@midday-ai/engine/resources/auth/plaid';
 
@@ -15,7 +16,15 @@ export class Plaid extends APIResource {
   /**
    * Auth Link (Plaid)
    */
-  link(body: PlaidLinkParams, options?: Core.RequestOptions): Core.APIPromise<PlaidLink> {
+  link(body?: PlaidLinkParams, options?: Core.RequestOptions): Core.APIPromise<PlaidLink>;
+  link(options?: Core.RequestOptions): Core.APIPromise<PlaidLink>;
+  link(
+    body: PlaidLinkParams | Core.RequestOptions = {},
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<PlaidLink> {
+    if (isRequestOptions(body)) {
+      return this.link({}, body);
+    }
     return this._client.post('/auth/plaid/link', { body, ...options });
   }
 }
@@ -47,9 +56,9 @@ export interface PlaidExchangeParams {
 }
 
 export interface PlaidLinkParams {
-  language: string;
+  language?: string;
 
-  userId: string;
+  userId?: string;
 }
 
 export namespace Plaid {
