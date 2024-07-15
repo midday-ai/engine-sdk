@@ -8,16 +8,16 @@ export class Health extends APIResource {
   /**
    * Health
    */
-  retrieve(options?: Core.RequestOptions): Core.APIPromise<HealthRetrieveResponse> {
+  retrieve(options?: Core.RequestOptions): Core.APIPromise<Health> {
     return this._client.get('/health', options);
   }
 }
 
-export interface HealthRetrieveResponse {
-  data: HealthRetrieveResponse.Data;
+export interface Health {
+  data: Health.Data;
 }
 
-export namespace HealthRetrieveResponse {
+export namespace Health {
   export interface Data {
     gocardless: Data.Gocardless;
 
@@ -42,5 +42,5 @@ export namespace HealthRetrieveResponse {
 }
 
 export namespace Health {
-  export import HealthRetrieveResponse = HealthAPI.HealthRetrieveResponse;
+  export import Health = HealthAPI.Health;
 }

@@ -22,17 +22,19 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import Midday from '@midday-ai/engine';
 
-const midday = new Midday();
+const midday = new Midday({
+  environment: 'development', // defaults to 'production'
+});
 
 async function main() {
-  const transactionListResponse = await midday.transactions.list({
+  const transactions = await midday.transactions.list({
     accountId: '5341343-4234-4c65-815c-t234213442',
     accountType: 'credit',
     provider: 'teller',
     accessToken: 'token-123',
   });
 
-  console.log(transactionListResponse.data);
+  console.log(transactions.data);
 }
 
 main();
@@ -46,10 +48,12 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import Midday from '@midday-ai/engine';
 
-const midday = new Midday();
+const midday = new Midday({
+  environment: 'development', // defaults to 'production'
+});
 
 async function main() {
-  const healthRetrieveResponse: Midday.HealthRetrieveResponse = await midday.health.retrieve();
+  const health: Midday.Health = await midday.health.retrieve();
 }
 
 main();
@@ -66,7 +70,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const healthRetrieveResponse = await midday.health.retrieve().catch(async (err) => {
+  const health = await midday.health.retrieve().catch(async (err) => {
     if (err instanceof Midday.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -151,9 +155,9 @@ const response = await midday.health.retrieve().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: healthRetrieveResponse, response: raw } = await midday.health.retrieve().withResponse();
+const { data: health, response: raw } = await midday.health.retrieve().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(healthRetrieveResponse.data);
+console.log(health.data);
 ```
 
 ### Making custom/undocumented requests
