@@ -1,6 +1,6 @@
 {
   "name": "@midday-ai/engine",
-  "version": "0.1.0-alpha.7",
+  "version": "0.1.0-alpha.8",
   "description": "The official TypeScript library for the Midday API",
   "author": "Midday <support@midday.ai>",
   "types": "dist/index.d.ts",
