@@ -196,7 +196,6 @@ export namespace Midday {
 
   export import Institutions = API.Institutions;
   export import InstitutionListResponse = API.InstitutionListResponse;
-  export import InstitutionUsageResponse = API.InstitutionUsageResponse;
   export import InstitutionListParams = API.InstitutionListParams;
 
   export import Auth = API.Auth;
