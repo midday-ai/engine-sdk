@@ -37,6 +37,11 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/institutions/usage.ts">Institution</a></code>
+- <code><a href="./src/resources/institutions/usage.ts">UsageUpdateResponse</a></code>
+
+Methods:
+
+- <code title="put /institutions/{id}/usage">client.institutions.usage.<a href="./src/resources/institutions/usage.ts">update</a>(id) -> UsageUpdateResponse</code>
 
 # Auth
 
