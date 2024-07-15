@@ -26,13 +26,17 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/institutions.ts">InstitutionListResponse</a></code>
-- <code><a href="./src/resources/institutions.ts">InstitutionUsageResponse</a></code>
+- <code><a href="./src/resources/institutions/institutions.ts">InstitutionListResponse</a></code>
 
 Methods:
 
-- <code title="get /institutions">client.institutions.<a href="./src/resources/institutions.ts">list</a>({ ...params }) -> InstitutionListResponse</code>
-- <code title="put /institutions/{id}/usage">client.institutions.<a href="./src/resources/institutions.ts">usage</a>(id) -> InstitutionUsageResponse</code>
+- <code title="get /institutions">client.institutions.<a href="./src/resources/institutions/institutions.ts">list</a>({ ...params }) -> InstitutionListResponse</code>
+
+## Usage
+
+Types:
+
+- <code><a href="./src/resources/institutions/usage.ts">Institution</a></code>
 
 # Auth
 
