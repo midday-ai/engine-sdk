@@ -6,7 +6,8 @@ Types:
 
 Methods:
 
-- <code title="get /transactions">client.transactions.<a href="./src/resources/transactions.ts">list</a>({ ...params }) -> TransactionListResponse</code>
+- <code title="get /transactions">client.transactions.<a href="./src/resources/transactions.ts">list</a>({
+  ...params }) -> TransactionListResponse</code>
 
 # Accounts
 
@@ -18,9 +19,12 @@ Types:
 
 Methods:
 
-- <code title="get /accounts">client.accounts.<a href="./src/resources/accounts.ts">list</a>({ ...params }) -> AccountListResponse</code>
-- <code title="delete /accounts">client.accounts.<a href="./src/resources/accounts.ts">delete</a>({ ...params }) -> AccountDeleteResponse</code>
-- <code title="get /accounts/balance">client.accounts.<a href="./src/resources/accounts.ts">balance</a>({ ...params }) -> AccountBalanceResponse</code>
+- <code title="get /accounts">client.accounts.<a href="./src/resources/accounts.ts">list</a>({
+  ...params }) -> AccountListResponse</code>
+- <code title="delete /accounts">client.accounts.<a href="./src/resources/accounts.ts">delete</a>({
+  ...params }) -> AccountDeleteResponse</code>
+- <code title="get /accounts/balance">client.accounts.<a href="./src/resources/accounts.ts">balance</a>({
+  ...params }) -> AccountBalanceResponse</code>
 
 # Institutions
 
@@ -31,8 +35,20 @@ Types:
 
 Methods:
 
-- <code title="get /institutions">client.institutions.<a href="./src/resources/institutions.ts">list</a>({ ...params }) -> InstitutionListResponse</code>
-- <code title="put /institutions/{id}/usage">client.institutions.<a href="./src/resources/institutions.ts">usage</a>(id) -> InstitutionUsageResponse</code>
+- <code title="get /institutions">client.institutions.<a href="./src/resources/institutions/institutions.ts">list</a>({
+  ...params }) -> InstitutionListResponse</code>
+
+## Usage
+
+Types:
+
+- <code><a href="./src/resources/institutions/usage.ts">Institution</a></code>
+- <code><a href="./src/resources/institutions/usage.ts">UsageUpdateResponse</a></code>
+
+Methods:
+
+- <code title="put /institutions/{id}/usage">client.institutions.usage.<a href="./src/resources/institutions/usage.ts">update</a>(id)
+  -> UsageUpdateResponse</code>
 
 # Auth
 
@@ -46,9 +62,12 @@ Types:
 
 Methods:
 
-- <code title="post /auth/gocardless/agreement">client.auth.gocardless.<a href="./src/resources/auth/gocardless.ts">agreement</a>({ ...params }) -> GocardlessAgreement</code>
-- <code title="post /auth/gocardless/exchange">client.auth.gocardless.<a href="./src/resources/auth/gocardless.ts">exchange</a>({ ...params }) -> GocardlessExchangeResponse</code>
-- <code title="post /auth/gocardless/link">client.auth.gocardless.<a href="./src/resources/auth/gocardless.ts">link</a>({ ...params }) -> GocardlessLinkResponse</code>
+- <code title="post /auth/gocardless/agreement">client.auth.gocardless.<a href="./src/resources/auth/gocardless.ts">agreement</a>({
+  ...params }) -> GocardlessAgreement</code>
+- <code title="post /auth/gocardless/exchange">client.auth.gocardless.<a href="./src/resources/auth/gocardless.ts">exchange</a>({
+  ...params }) -> GocardlessExchangeResponse</code>
+- <code title="post /auth/gocardless/link">client.auth.gocardless.<a href="./src/resources/auth/gocardless.ts">link</a>({
+  ...params }) -> GocardlessLinkResponse</code>
 
 ## Plaid
 
@@ -59,8 +78,10 @@ Types:
 
 Methods:
 
-- <code title="post /auth/plaid/exchange">client.auth.plaid.<a href="./src/resources/auth/plaid.ts">exchange</a>({ ...params }) -> PlaidExchangeResponse</code>
-- <code title="post /auth/plaid/link">client.auth.plaid.<a href="./src/resources/auth/plaid.ts">link</a>({ ...params }) -> PlaidLinkResponse</code>
+- <code title="post /auth/plaid/exchange">client.auth.plaid.<a href="./src/resources/auth/plaid.ts">exchange</a>({
+  ...params }) -> PlaidExchangeResponse</code>
+- <code title="post /auth/plaid/link">client.auth.plaid.<a href="./src/resources/auth/plaid.ts">link</a>({
+  ...params }) -> PlaidLinkResponse</code>
 
 # Health
 
@@ -70,4 +91,5 @@ Types:
 
 Methods:
 
-- <code title="get /health">client.health.<a href="./src/resources/health.ts">retrieve</a>() -> HealthRetrieveResponse</code>
+- <code title="get /health">client.health.<a href="./src/resources/health.ts">retrieve</a>()
+  -> HealthRetrieveResponse</code>
