@@ -11,8 +11,10 @@ export class Auth extends APIResource {
 
 export namespace Auth {
   export import Gocardless = GocardlessAPI.Gocardless;
+  export import GocardlessAgreement = GocardlessAPI.GocardlessAgreement;
   export import GocardlessExchangeResponse = GocardlessAPI.GocardlessExchangeResponse;
   export import GocardlessLinkResponse = GocardlessAPI.GocardlessLinkResponse;
+  export import GocardlessAgreementParams = GocardlessAPI.GocardlessAgreementParams;
   export import GocardlessExchangeParams = GocardlessAPI.GocardlessExchangeParams;
   export import GocardlessLinkParams = GocardlessAPI.GocardlessLinkParams;
   export import Plaid = PlaidAPI.Plaid;
