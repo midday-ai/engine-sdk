@@ -58,6 +58,11 @@ export interface PlaidExchangeParams {
 export interface PlaidLinkParams {
   language?: string;
 
+  /**
+   * The routing number of the bank to highlight in Link
+   */
+  routingNumber?: string;
+
   userId?: string;
 }
 
