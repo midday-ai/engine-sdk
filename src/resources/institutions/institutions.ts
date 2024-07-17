@@ -56,7 +56,8 @@ export interface InstitutionListParams {
     | 'ES'
     | 'SE'
     | 'GB'
-    | 'US';
+    | 'US'
+    | 'CA';
 
   /**
    * Limit results
