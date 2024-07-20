@@ -50,7 +50,11 @@ describe('resource plaid', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       midday.auth.plaid.link(
-        { language: 'en', routingNumber: '8422944', userId: '9293961c-df93-4d6d-a2cc-fc3e353b2d10' },
+        {
+          accessToken: 'ojwmef9823f892n9h98h2efoqed9823hdodfcoj13er92hef',
+          language: 'en',
+          userId: '9293961c-df93-4d6d-a2cc-fc3e353b2d10',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Midday.NotFoundError);
