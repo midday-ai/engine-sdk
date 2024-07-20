@@ -56,12 +56,12 @@ export interface PlaidExchangeParams {
 }
 
 export interface PlaidLinkParams {
-  language?: string;
-
   /**
-   * The routing number of the bank to highlight in Link
+   * Used when initiating the reconnect flow
    */
-  routingNumber?: string;
+  accessToken?: string;
+
+  language?: string;
 
   userId?: string;
 }
