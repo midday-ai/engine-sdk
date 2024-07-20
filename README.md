@@ -22,7 +22,7 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import Midday from '@midday-ai/engine';
 
-const midday = new Midday({
+const client = new Midday({
   environment: 'development', // or 'production' | 'staging'; defaults to 'production'
 });
 
@@ -48,7 +48,7 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import Midday from '@midday-ai/engine';
 
-const midday = new Midday({
+const client = new Midday({
   environment: 'development', // or 'production' | 'staging'; defaults to 'production'
 });
 
@@ -108,7 +108,7 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const midday = new Midday({
+const client = new Midday({
   maxRetries: 0, // default is 2
 });
 
@@ -125,7 +125,7 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const midday = new Midday({
+const client = new Midday({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
@@ -149,7 +149,7 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 
 <!-- prettier-ignore -->
 ```ts
-const midday = new Midday();
+const client = new Midday();
 
 const response = await midday.health.retrieve().asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -256,7 +256,7 @@ import http from 'http';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
-const midday = new Midday({
+const client = new Midday({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });
 
