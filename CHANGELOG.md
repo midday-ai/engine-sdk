@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2024-07-23)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#60](https://github.com/midday-ai/engine-sdk/issues/60)) ([89add59](https://github.com/midday-ai/engine-sdk/commit/89add591a6b24e720200341e22d347ff85940332))
+* **api:** OpenAPI spec update via Stainless API ([#64](https://github.com/midday-ai/engine-sdk/issues/64)) ([a2463bc](https://github.com/midday-ai/engine-sdk/commit/a2463bc1c994860825dd795cb0e84d91b7f6e4f4))
+
+
+### Bug Fixes
+
+* use relative paths ([#65](https://github.com/midday-ai/engine-sdk/issues/65)) ([da6edba](https://github.com/midday-ai/engine-sdk/commit/da6edba8fa043f35b3a3b343c888d4702e96537a))
+
+
+### Chores
+
+* **internal:** refactor release doctor script ([#62](https://github.com/midday-ai/engine-sdk/issues/62)) ([9ea6270](https://github.com/midday-ai/engine-sdk/commit/9ea62700276d8c553d5ba6d4f9c0cec768dee2f8))
+* **tests:** update prism version ([#63](https://github.com/midday-ai/engine-sdk/issues/63)) ([22341fb](https://github.com/midday-ai/engine-sdk/commit/22341fb53603446682539ccadb330de9e8b92f90))
+
 ## 0.1.0-alpha.15 (2024-07-20)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
