@@ -9,7 +9,6 @@ import * as API from './resources/index';
 const environments = {
   production: 'https://engine.midday.ai',
   development: 'http://localhost:3002',
-  staging: 'https://engine-staging.midday.ai',
 };
 type Environment = keyof typeof environments;
 
@@ -25,7 +24,6 @@ export interface ClientOptions {
    * Each environment maps to a different base URL:
    * - `production` corresponds to `https://engine.midday.ai`
    * - `development` corresponds to `http://localhost:3002`
-   * - `staging` corresponds to `https://engine-staging.midday.ai`
    */
   environment?: Environment;
 
