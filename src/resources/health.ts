@@ -23,6 +23,8 @@ export namespace Health {
 
     plaid: Data.Plaid;
 
+    search: Data.Search;
+
     teller: Data.Teller;
   }
 
@@ -32,6 +34,10 @@ export namespace Health {
     }
 
     export interface Plaid {
+      healthy: boolean;
+    }
+
+    export interface Search {
       healthy: boolean;
     }
 
