@@ -25,7 +25,6 @@ describe('resource accounts', () => {
       provider: 'teller',
       id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
       accessToken: 'test_token_ky6igyqi3qxa4',
-      countryCode: 'SE',
       institutionId: 'ins_109508',
     });
   });

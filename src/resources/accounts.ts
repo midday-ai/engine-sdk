@@ -49,17 +49,25 @@ export namespace Accounts {
   export interface Data {
     id: string;
 
+    balance: Data.Balance;
+
     currency: string;
 
     enrollment_id: string | null;
 
-    institution: UsageAPI.Institution | null;
+    institution: UsageAPI.Institution;
 
     name: string;
 
-    provider: 'teller' | 'plaid' | 'gocardless';
-
     type: 'depository' | 'credit' | 'other_asset' | 'loan' | 'other_liability';
+  }
+
+  export namespace Data {
+    export interface Balance {
+      amount: number;
+
+      currency: string;
+    }
   }
 }
 
@@ -79,11 +87,6 @@ export interface AccountListParams {
    * Teller & Plaid access token
    */
   accessToken?: string;
-
-  /**
-   * GoCardLess country code
-   */
-  countryCode?: string;
 
   /**
    * Plaid institution id
