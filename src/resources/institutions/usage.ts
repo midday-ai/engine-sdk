@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@midday-ai/engine/resource';
-import * as Core from '@midday-ai/engine/core';
-import * as UsageAPI from '@midday-ai/engine/resources/institutions/usage';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
+import * as UsageAPI from './usage';
 
 export class Usage extends APIResource {
   /**
@@ -26,7 +26,7 @@ export interface Institution {
 }
 
 export interface UsageUpdateResponse {
-  data: Institution | null;
+  data: Institution;
 }
 
 export namespace Usage {

@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@midday-ai/engine/resource';
-import * as Core from '@midday-ai/engine/core';
-import * as HealthAPI from '@midday-ai/engine/resources/health';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as HealthAPI from './health';
 
 export class Health extends APIResource {
   /**
@@ -23,6 +23,8 @@ export namespace Health {
 
     plaid: Data.Plaid;
 
+    search: Data.Search;
+
     teller: Data.Teller;
   }
 
@@ -32,6 +34,10 @@ export namespace Health {
     }
 
     export interface Plaid {
+      healthy: boolean;
+    }
+
+    export interface Search {
       healthy: boolean;
     }
 

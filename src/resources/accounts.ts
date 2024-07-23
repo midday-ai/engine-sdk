@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@midday-ai/engine/resource';
-import * as Core from '@midday-ai/engine/core';
-import * as AccountsAPI from '@midday-ai/engine/resources/accounts';
-import * as UsageAPI from '@midday-ai/engine/resources/institutions/usage';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as AccountsAPI from './accounts';
+import * as UsageAPI from './institutions/usage';
 
 export class Accounts extends APIResource {
   /**
@@ -49,17 +49,25 @@ export namespace Accounts {
   export interface Data {
     id: string;
 
+    balance: Data.Balance;
+
     currency: string;
 
     enrollment_id: string | null;
 
-    institution: UsageAPI.Institution | null;
+    institution: UsageAPI.Institution;
 
     name: string;
 
-    provider: 'teller' | 'plaid' | 'gocardless';
-
     type: 'depository' | 'credit' | 'other_asset' | 'loan' | 'other_liability';
+  }
+
+  export namespace Data {
+    export interface Balance {
+      amount: number;
+
+      currency: string;
+    }
   }
 }
 
@@ -79,11 +87,6 @@ export interface AccountListParams {
    * Teller & Plaid access token
    */
   accessToken?: string;
-
-  /**
-   * GoCardLess country code
-   */
-  countryCode?: string;
 
   /**
    * Plaid institution id
