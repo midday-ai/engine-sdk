@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@midday-ai/engine/resource';
-import { isRequestOptions } from '@midday-ai/engine/core';
-import * as Core from '@midday-ai/engine/core';
-import * as PlaidAPI from '@midday-ai/engine/resources/auth/plaid';
+import { APIResource } from '../../resource';
+import { isRequestOptions } from '../../core';
+import * as Core from '../../core';
+import * as PlaidAPI from './plaid';
 
 export class Plaid extends APIResource {
   /**

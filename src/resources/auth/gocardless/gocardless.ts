@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@midday-ai/engine/resource';
-import * as Core from '@midday-ai/engine/core';
-import * as GocardlessAPI from '@midday-ai/engine/resources/auth/gocardless/gocardless';
-import * as AgreementAPI from '@midday-ai/engine/resources/auth/gocardless/agreement';
+import { APIResource } from '../../../resource';
+import * as Core from '../../../core';
+import * as GocardlessAPI from './gocardless';
+import * as AgreementAPI from './agreement';
 
 export class Gocardless extends APIResource {
   agreement: AgreementAPI.Agreement = new AgreementAPI.Agreement(this._client);
