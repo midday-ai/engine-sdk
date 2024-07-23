@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@midday-ai/engine/resource';
-import * as PlaidAPI from '@midday-ai/engine/resources/auth/plaid';
-import * as GocardlessAPI from '@midday-ai/engine/resources/auth/gocardless/gocardless';
+import { APIResource } from '../../resource';
+import * as PlaidAPI from './plaid';
+import * as GocardlessAPI from './gocardless/gocardless';
 
 export class Auth extends APIResource {
   plaid: PlaidAPI.Plaid = new PlaidAPI.Plaid(this._client);
