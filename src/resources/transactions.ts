@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '@midday-ai/engine/resource';
-import * as Core from '@midday-ai/engine/core';
-import * as TransactionsAPI from '@midday-ai/engine/resources/transactions';
+import { APIResource } from '../resource';
+import * as Core from '../core';
+import * as TransactionsAPI from './transactions';
 
 export class Transactions extends APIResource {
   /**
