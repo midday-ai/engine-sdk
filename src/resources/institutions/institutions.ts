@@ -17,7 +17,7 @@ export class Institutions extends APIResource {
 }
 
 export interface Institutions {
-  data: Array<UsageAPI.Institution | null>;
+  data: Array<UsageAPI.Institution>;
 }
 
 export interface InstitutionListParams {

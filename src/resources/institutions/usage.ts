@@ -26,7 +26,7 @@ export interface Institution {
 }
 
 export interface UsageUpdateResponse {
-  data: Institution | null;
+  data: Institution;
 }
 
 export namespace Usage {
