@@ -79,7 +79,7 @@ export interface AccountListParams {
   provider: 'teller' | 'plaid' | 'gocardless';
 
   /**
-   * GoCardLess account id
+   * GoCardLess reference id
    */
   id?: string;
 
