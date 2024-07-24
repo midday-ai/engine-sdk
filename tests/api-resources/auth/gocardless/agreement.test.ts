@@ -11,7 +11,7 @@ const midday = new Midday({
 describe('resource agreement', () => {
   test('create: only required params', async () => {
     const responsePromise = midday.auth.gocardless.agreement.create({
-      institution_id: 'REVOLUT_REVOGB21',
+      institutionId: 'REVOLUT_REVOGB21',
       transactionTotalDays: 90,
     });
     const rawResponse = await responsePromise.asResponse();
@@ -25,7 +25,7 @@ describe('resource agreement', () => {
 
   test('create: required and optional params', async () => {
     const response = await midday.auth.gocardless.agreement.create({
-      institution_id: 'REVOLUT_REVOGB21',
+      institutionId: 'REVOLUT_REVOGB21',
       transactionTotalDays: 90,
     });
   });
