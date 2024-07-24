@@ -53,15 +53,15 @@ export namespace GocardlessLink {
 }
 
 export interface GocardlessExchangeParams {
-  institution_id: string;
+  institutionId: string;
 
-  transaction_total_days: number;
+  transactionTotalDays: number;
 }
 
 export interface GocardlessLinkParams {
   agreement: string | null;
 
-  institution_id: string;
+  institutionId: string;
 
   redirect: string;
 }

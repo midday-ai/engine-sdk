@@ -34,7 +34,7 @@ export namespace GocardlessAgreement {
 }
 
 export interface AgreementCreateParams {
-  institution_id: string;
+  institutionId: string;
 
   transactionTotalDays: number;
 }
