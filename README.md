@@ -23,7 +23,7 @@ The full API of this library can be found in [api.md](api.md).
 import Midday from '@midday-ai/engine';
 
 const client = new Midday({
-  environment: 'development', // defaults to 'production'
+  environment: 'staging', // or 'production' | 'development'; defaults to 'production'
 });
 
 async function main() {
@@ -49,7 +49,7 @@ This library includes TypeScript definitions for all request params and response
 import Midday from '@midday-ai/engine';
 
 const client = new Midday({
-  environment: 'development', // defaults to 'production'
+  environment: 'staging', // or 'production' | 'development'; defaults to 'production'
 });
 
 async function main() {
