@@ -3,14 +3,14 @@
 import Midday from '@midday-ai/engine';
 import { Response } from 'node-fetch';
 
-const midday = new Midday({
+const client = new Midday({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource institutions', () => {
   test('list: only required params', async () => {
-    const responsePromise = midday.institutions.list({ countryCode: 'BE' });
+    const responsePromise = client.institutions.list({ countryCode: 'BE' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,6 +21,6 @@ describe('resource institutions', () => {
   });
 
   test('list: required and optional params', async () => {
-    const response = await midday.institutions.list({ countryCode: 'BE', limit: '50', q: 'Swedbank' });
+    const response = await client.institutions.list({ countryCode: 'BE', limit: '50', q: 'Swedbank' });
   });
 });
