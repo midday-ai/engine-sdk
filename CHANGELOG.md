@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.20 (2024-07-29)
+
+Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#77](https://github.com/midday-ai/engine-sdk/issues/77)) ([ff324c4](https://github.com/midday-ai/engine-sdk/commit/ff324c40610e3ff726f9917bed59f075d2aee628))
+* **api:** OpenAPI spec update via Stainless API ([#81](https://github.com/midday-ai/engine-sdk/issues/81)) ([90d5986](https://github.com/midday-ai/engine-sdk/commit/90d598676abdd902b7a5c70b8ac882a3529a0981))
+
+
+### Bug Fixes
+
+* **compat:** remove ReadableStream polyfill redundant since node v16 ([#79](https://github.com/midday-ai/engine-sdk/issues/79)) ([369d32a](https://github.com/midday-ai/engine-sdk/commit/369d32aae7e4466c30ae4d7060af6b2bc0a77e3b))
+
+
+### Chores
+
+* **docs:** fix incorrect client var names ([#80](https://github.com/midday-ai/engine-sdk/issues/80)) ([d26715e](https://github.com/midday-ai/engine-sdk/commit/d26715edec4398da2bf674168ce94bfc75366f88))
+
 ## 0.1.0-alpha.19 (2024-07-25)
 
 Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
