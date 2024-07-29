@@ -166,7 +166,6 @@ export class Midday extends Core.APIClient {
   }
 
   static Midday = this;
-  static DEFAULT_TIMEOUT = 60000; // 1 minute
 
   static MiddayError = Errors.MiddayError;
   static APIError = Errors.APIError;
