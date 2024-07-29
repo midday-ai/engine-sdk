@@ -3,14 +3,14 @@
 import Midday from '@midday-ai/engine';
 import { Response } from 'node-fetch';
 
-const midday = new Midday({
+const client = new Midday({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource accounts', () => {
   test('list: only required params', async () => {
-    const responsePromise = midday.accounts.list({ provider: 'teller' });
+    const responsePromise = client.accounts.list({ provider: 'teller' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,7 +21,7 @@ describe('resource accounts', () => {
   });
 
   test('list: required and optional params', async () => {
-    const response = await midday.accounts.list({
+    const response = await client.accounts.list({
       provider: 'teller',
       id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
       accessToken: 'test_token_ky6igyqi3qxa4',
@@ -30,7 +30,7 @@ describe('resource accounts', () => {
   });
 
   test('delete: only required params', async () => {
-    const responsePromise = midday.accounts.delete({
+    const responsePromise = client.accounts.delete({
       accountId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
       provider: 'teller',
     });
@@ -44,7 +44,7 @@ describe('resource accounts', () => {
   });
 
   test('delete: required and optional params', async () => {
-    const response = await midday.accounts.delete({
+    const response = await client.accounts.delete({
       accountId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
       provider: 'teller',
       accessToken: 'test_token_ky6igyqi3qxa4',
@@ -52,7 +52,7 @@ describe('resource accounts', () => {
   });
 
   test('balance: only required params', async () => {
-    const responsePromise = midday.accounts.balance({
+    const responsePromise = client.accounts.balance({
       id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
       provider: 'teller',
     });
@@ -66,7 +66,7 @@ describe('resource accounts', () => {
   });
 
   test('balance: required and optional params', async () => {
-    const response = await midday.accounts.balance({
+    const response = await client.accounts.balance({
       id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
       provider: 'teller',
       accessToken: 'test_token_ky6igyqi3qxa4',
