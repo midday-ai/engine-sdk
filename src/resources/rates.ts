@@ -19,6 +19,8 @@ export interface RatesSchema {
 
 export namespace RatesSchema {
   export interface Data {
+    date: string;
+
     rates: Record<string, number>;
 
     source: string;
