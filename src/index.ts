@@ -149,6 +149,7 @@ export class Midday extends Core.APIClient {
   institutions: API.Institutions = new API.Institutions(this);
   auth: API.Auth = new API.Auth(this);
   health: API.Health = new API.Health(this);
+  rates: API.Rates = new API.Rates(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -224,6 +225,9 @@ export namespace Midday {
   export import Auth = API.Auth;
 
   export import Health = API.Health;
+
+  export import Rates = API.Rates;
+  export import RatesSchema = API.RatesSchema;
 }
 
 export default Midday;
