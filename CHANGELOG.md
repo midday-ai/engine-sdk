@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.21 (2024-08-03)
+
+Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#86](https://github.com/midday-ai/engine-sdk/issues/86)) ([43aaaa8](https://github.com/midday-ai/engine-sdk/commit/43aaaa84253120fe2b5a33990b9e24391802f692))
+
+
+### Chores
+
+* **internal:** add constant for default timeout ([#84](https://github.com/midday-ai/engine-sdk/issues/84)) ([aadf756](https://github.com/midday-ai/engine-sdk/commit/aadf7561de23d3566cc9dd8f17ec7627a5814fd4))
+* **internal:** codegen related update ([#87](https://github.com/midday-ai/engine-sdk/issues/87)) ([7c9d88d](https://github.com/midday-ai/engine-sdk/commit/7c9d88d0085549863f18fd17f47afb0a3ab6d713))
+
 ## 0.1.0-alpha.20 (2024-07-29)
 
 Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
