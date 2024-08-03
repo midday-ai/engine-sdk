@@ -88,3 +88,13 @@ Types:
 Methods:
 
 - <code title="get /health">client.health.<a href="./src/resources/health.ts">retrieve</a>() -> Health</code>
+
+# Rates
+
+Types:
+
+- <code><a href="./src/resources/rates.ts">RatesSchema</a></code>
+
+Methods:
+
+- <code title="get /rates">client.rates.<a href="./src/resources/rates.ts">list</a>() -> RatesSchema</code>
