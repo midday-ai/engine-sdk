@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.23 (2024-10-07)
+
+Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#92](https://github.com/midday-ai/engine-sdk/issues/92)) ([711a167](https://github.com/midday-ai/engine-sdk/commit/711a167d960fced6fc634b22387b24f575e7c875))
+* **api:** OpenAPI spec update via Stainless API ([#94](https://github.com/midday-ai/engine-sdk/issues/94)) ([649573d](https://github.com/midday-ai/engine-sdk/commit/649573d69395adb9ba219b25ca6cb036a41d99cd))
+* **api:** OpenAPI spec update via Stainless API ([#95](https://github.com/midday-ai/engine-sdk/issues/95)) ([8d5bb5b](https://github.com/midday-ai/engine-sdk/commit/8d5bb5ba774c26fc23873171b610b694c5aa3957))
+
+
+### Chores
+
+* **internal:** codegen related update ([#96](https://github.com/midday-ai/engine-sdk/issues/96)) ([e808cea](https://github.com/midday-ai/engine-sdk/commit/e808cea87cacab7c102c7c69a7da4b78c039a2f2))
+* **internal:** codegen related update ([#97](https://github.com/midday-ai/engine-sdk/issues/97)) ([a1ecda9](https://github.com/midday-ai/engine-sdk/commit/a1ecda9f4bbc32c96064f2a97aae614b0a458187))
+
 ## 0.1.0-alpha.22 (2024-08-03)
 
 Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
