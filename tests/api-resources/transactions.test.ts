@@ -12,7 +12,7 @@ describe('resource transactions', () => {
   test('list: only required params', async () => {
     const responsePromise = client.transactions.list({
       accountId: '5341343-4234-4c65-815c-t234213442',
-      accountType: 'depository',
+      accountType: 'credit',
       provider: 'teller',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -27,7 +27,7 @@ describe('resource transactions', () => {
   test('list: required and optional params', async () => {
     const response = await client.transactions.list({
       accountId: '5341343-4234-4c65-815c-t234213442',
-      accountType: 'depository',
+      accountType: 'credit',
       provider: 'teller',
       accessToken: 'token-123',
       latest: 'true',
