@@ -10,7 +10,7 @@ const client = new Midday({
 
 describe('resource institutions', () => {
   test('list: only required params', async () => {
-    const responsePromise = client.institutions.list({ countryCode: 'BE' });
+    const responsePromise = client.institutions.list({ countryCode: 'AT' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,6 +21,6 @@ describe('resource institutions', () => {
   });
 
   test('list: required and optional params', async () => {
-    const response = await client.institutions.list({ countryCode: 'BE', limit: '50', q: 'Swedbank' });
+    const response = await client.institutions.list({ countryCode: 'AT', limit: '50', q: 'Swedbank' });
   });
 });
