@@ -64,6 +64,8 @@ export interface GocardlessLinkParams {
   institutionId: string;
 
   redirect: string;
+
+  reference?: string;
 }
 
 export namespace Gocardless {
