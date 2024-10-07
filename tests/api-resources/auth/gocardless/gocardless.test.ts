@@ -50,6 +50,7 @@ describe('resource gocardless', () => {
       agreement: '2dea1b84-97b0-4cb4-8805-302c227587c8',
       institutionId: 'REVOLUT_REVOGB21',
       redirect: 'http://www.yourwebpage.com',
+      reference: '1234567890',
     });
   });
 });
