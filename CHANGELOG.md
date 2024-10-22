@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.24 (2024-10-22)
+
+Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
+
+### Features
+
+* **api:** api update ([#101](https://github.com/midday-ai/engine-sdk/issues/101)) ([be039c6](https://github.com/midday-ai/engine-sdk/commit/be039c62b850c71b0d3d123a3d6c7352d2a871ba))
+
 ## 0.1.0-alpha.23 (2024-10-07)
 
 Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
