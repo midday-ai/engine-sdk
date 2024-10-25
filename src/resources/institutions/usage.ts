@@ -30,6 +30,6 @@ export interface UsageUpdateResponse {
 }
 
 export namespace Usage {
-  export import Institution = UsageAPI.Institution;
-  export import UsageUpdateResponse = UsageAPI.UsageUpdateResponse;
+  export type Institution = UsageAPI.Institution;
+  export type UsageUpdateResponse = UsageAPI.UsageUpdateResponse;
 }
