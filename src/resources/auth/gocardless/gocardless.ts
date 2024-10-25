@@ -69,11 +69,11 @@ export interface GocardlessLinkParams {
 }
 
 export namespace Gocardless {
-  export type GocardlessExchange = GocardlessAPI.GocardlessExchange;
-  export type GocardlessLink = GocardlessAPI.GocardlessLink;
-  export type GocardlessExchangeParams = GocardlessAPI.GocardlessExchangeParams;
-  export type GocardlessLinkParams = GocardlessAPI.GocardlessLinkParams;
+  export import GocardlessExchange = GocardlessAPI.GocardlessExchange;
+  export import GocardlessLink = GocardlessAPI.GocardlessLink;
+  export import GocardlessExchangeParams = GocardlessAPI.GocardlessExchangeParams;
+  export import GocardlessLinkParams = GocardlessAPI.GocardlessLinkParams;
   export import Agreement = AgreementAPI.Agreement;
-  export type GocardlessAgreement = AgreementAPI.GocardlessAgreement;
-  export type AgreementCreateParams = AgreementAPI.AgreementCreateParams;
+  export import GocardlessAgreement = AgreementAPI.GocardlessAgreement;
+  export import AgreementCreateParams = AgreementAPI.AgreementCreateParams;
 }

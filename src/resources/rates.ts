@@ -28,5 +28,5 @@ export namespace RatesSchema {
 }
 
 export namespace Rates {
-  export type RatesSchema = RatesAPI.RatesSchema;
+  export import RatesSchema = RatesAPI.RatesSchema;
 }

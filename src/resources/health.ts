@@ -48,5 +48,5 @@ export namespace Health {
 }
 
 export namespace Health {
-  export type Health = HealthAPI.Health;
+  export import Health = HealthAPI.Health;
 }

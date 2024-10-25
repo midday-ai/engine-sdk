@@ -71,9 +71,9 @@ export interface InstitutionListParams {
 }
 
 export namespace Institutions {
-  export type Institutions = InstitutionsAPI.Institutions;
-  export type InstitutionListParams = InstitutionsAPI.InstitutionListParams;
+  export import Institutions = InstitutionsAPI.Institutions;
+  export import InstitutionListParams = InstitutionsAPI.InstitutionListParams;
   export import Usage = UsageAPI.Usage;
-  export type Institution = UsageAPI.Institution;
-  export type UsageUpdateResponse = UsageAPI.UsageUpdateResponse;
+  export import Institution = UsageAPI.Institution;
+  export import UsageUpdateResponse = UsageAPI.UsageUpdateResponse;
 }

@@ -40,6 +40,6 @@ export interface AgreementCreateParams {
 }
 
 export namespace Agreement {
-  export type GocardlessAgreement = AgreementAPI.GocardlessAgreement;
-  export type AgreementCreateParams = AgreementAPI.AgreementCreateParams;
+  export import GocardlessAgreement = AgreementAPI.GocardlessAgreement;
+  export import AgreementCreateParams = AgreementAPI.AgreementCreateParams;
 }
