@@ -207,27 +207,27 @@ export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
 export namespace Midday {
-  export import RequestOptions = Core.RequestOptions;
+  export type RequestOptions = Core.RequestOptions;
 
   export import Transactions = API.Transactions;
-  export import TransactionListParams = API.TransactionListParams;
+  export type TransactionListParams = API.TransactionListParams;
 
   export import Accounts = API.Accounts;
-  export import AccountBalance = API.AccountBalance;
-  export import AccountDeleteResponse = API.AccountDeleteResponse;
-  export import AccountListParams = API.AccountListParams;
-  export import AccountDeleteParams = API.AccountDeleteParams;
-  export import AccountBalanceParams = API.AccountBalanceParams;
+  export type AccountBalance = API.AccountBalance;
+  export type AccountDeleteResponse = API.AccountDeleteResponse;
+  export type AccountListParams = API.AccountListParams;
+  export type AccountDeleteParams = API.AccountDeleteParams;
+  export type AccountBalanceParams = API.AccountBalanceParams;
 
   export import Institutions = API.Institutions;
-  export import InstitutionListParams = API.InstitutionListParams;
+  export type InstitutionListParams = API.InstitutionListParams;
 
   export import Auth = API.Auth;
 
   export import Health = API.Health;
 
   export import Rates = API.Rates;
-  export import RatesSchema = API.RatesSchema;
+  export type RatesSchema = API.RatesSchema;
 }
 
 export default Midday;

@@ -66,6 +66,6 @@ export interface TransactionListParams {
 }
 
 export namespace Transactions {
-  export import Transactions = TransactionsAPI.Transactions;
-  export import TransactionListParams = TransactionsAPI.TransactionListParams;
+  export type Transactions = TransactionsAPI.Transactions;
+  export type TransactionListParams = TransactionsAPI.TransactionListParams;
 }

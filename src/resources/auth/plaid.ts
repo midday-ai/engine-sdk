@@ -67,8 +67,8 @@ export interface PlaidLinkParams {
 }
 
 export namespace Plaid {
-  export import PlaidExchange = PlaidAPI.PlaidExchange;
-  export import PlaidLink = PlaidAPI.PlaidLink;
-  export import PlaidExchangeParams = PlaidAPI.PlaidExchangeParams;
-  export import PlaidLinkParams = PlaidAPI.PlaidLinkParams;
+  export type PlaidExchange = PlaidAPI.PlaidExchange;
+  export type PlaidLink = PlaidAPI.PlaidLink;
+  export type PlaidExchangeParams = PlaidAPI.PlaidExchangeParams;
+  export type PlaidLinkParams = PlaidAPI.PlaidLinkParams;
 }

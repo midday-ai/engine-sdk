@@ -123,10 +123,10 @@ export interface AccountBalanceParams {
 }
 
 export namespace Accounts {
-  export import AccountBalance = AccountsAPI.AccountBalance;
-  export import Accounts = AccountsAPI.Accounts;
-  export import AccountDeleteResponse = AccountsAPI.AccountDeleteResponse;
-  export import AccountListParams = AccountsAPI.AccountListParams;
-  export import AccountDeleteParams = AccountsAPI.AccountDeleteParams;
-  export import AccountBalanceParams = AccountsAPI.AccountBalanceParams;
+  export type AccountBalance = AccountsAPI.AccountBalance;
+  export type Accounts = AccountsAPI.Accounts;
+  export type AccountDeleteResponse = AccountsAPI.AccountDeleteResponse;
+  export type AccountListParams = AccountsAPI.AccountListParams;
+  export type AccountDeleteParams = AccountsAPI.AccountDeleteParams;
+  export type AccountBalanceParams = AccountsAPI.AccountBalanceParams;
 }
