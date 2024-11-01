@@ -2,22 +2,38 @@
 
 import { APIResource } from '../../resource';
 import * as PlaidAPI from './plaid';
+import { Plaid, PlaidExchange, PlaidExchangeParams, PlaidLink, PlaidLinkParams } from './plaid';
 import * as GocardlessAPI from './gocardless/gocardless';
+import {
+  Gocardless,
+  GocardlessExchange,
+  GocardlessExchangeParams,
+  GocardlessLink,
+  GocardlessLinkParams,
+} from './gocardless/gocardless';
 
 export class Auth extends APIResource {
   plaid: PlaidAPI.Plaid = new PlaidAPI.Plaid(this._client);
   gocardless: GocardlessAPI.Gocardless = new GocardlessAPI.Gocardless(this._client);
 }
 
-export namespace Auth {
-  export import Plaid = PlaidAPI.Plaid;
-  export import PlaidExchange = PlaidAPI.PlaidExchange;
-  export import PlaidLink = PlaidAPI.PlaidLink;
-  export import PlaidExchangeParams = PlaidAPI.PlaidExchangeParams;
-  export import PlaidLinkParams = PlaidAPI.PlaidLinkParams;
-  export import Gocardless = GocardlessAPI.Gocardless;
-  export import GocardlessExchange = GocardlessAPI.GocardlessExchange;
-  export import GocardlessLink = GocardlessAPI.GocardlessLink;
-  export import GocardlessExchangeParams = GocardlessAPI.GocardlessExchangeParams;
-  export import GocardlessLinkParams = GocardlessAPI.GocardlessLinkParams;
+Auth.Plaid = Plaid;
+Auth.Gocardless = Gocardless;
+
+export declare namespace Auth {
+  export {
+    Plaid as Plaid,
+    type PlaidExchange as PlaidExchange,
+    type PlaidLink as PlaidLink,
+    type PlaidExchangeParams as PlaidExchangeParams,
+    type PlaidLinkParams as PlaidLinkParams,
+  };
+
+  export {
+    Gocardless as Gocardless,
+    type GocardlessExchange as GocardlessExchange,
+    type GocardlessLink as GocardlessLink,
+    type GocardlessExchangeParams as GocardlessExchangeParams,
+    type GocardlessLinkParams as GocardlessLinkParams,
+  };
 }

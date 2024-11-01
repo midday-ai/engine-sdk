@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as TransactionsAPI from './transactions';
 
 export class Transactions extends APIResource {
   /**
@@ -65,7 +64,6 @@ export interface TransactionListParams {
   latest?: 'true' | 'false';
 }
 
-export namespace Transactions {
-  export import Transactions = TransactionsAPI.Transactions;
-  export import TransactionListParams = TransactionsAPI.TransactionListParams;
+export declare namespace Transactions {
+  export { type Transactions as Transactions, type TransactionListParams as TransactionListParams };
 }
