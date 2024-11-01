@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as AccountsAPI from './accounts';
 import * as UsageAPI from './institutions/usage';
 
 export class Accounts extends APIResource {
@@ -122,11 +121,13 @@ export interface AccountBalanceParams {
   accessToken?: string;
 }
 
-export namespace Accounts {
-  export import AccountBalance = AccountsAPI.AccountBalance;
-  export import Accounts = AccountsAPI.Accounts;
-  export import AccountDeleteResponse = AccountsAPI.AccountDeleteResponse;
-  export import AccountListParams = AccountsAPI.AccountListParams;
-  export import AccountDeleteParams = AccountsAPI.AccountDeleteParams;
-  export import AccountBalanceParams = AccountsAPI.AccountBalanceParams;
+export declare namespace Accounts {
+  export {
+    type AccountBalance as AccountBalance,
+    type Accounts as Accounts,
+    type AccountDeleteResponse as AccountDeleteResponse,
+    type AccountListParams as AccountListParams,
+    type AccountDeleteParams as AccountDeleteParams,
+    type AccountBalanceParams as AccountBalanceParams,
+  };
 }

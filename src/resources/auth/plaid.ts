@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as PlaidAPI from './plaid';
 
 export class Plaid extends APIResource {
   /**
@@ -66,9 +65,11 @@ export interface PlaidLinkParams {
   userId?: string;
 }
 
-export namespace Plaid {
-  export import PlaidExchange = PlaidAPI.PlaidExchange;
-  export import PlaidLink = PlaidAPI.PlaidLink;
-  export import PlaidExchangeParams = PlaidAPI.PlaidExchangeParams;
-  export import PlaidLinkParams = PlaidAPI.PlaidLinkParams;
+export declare namespace Plaid {
+  export {
+    type PlaidExchange as PlaidExchange,
+    type PlaidLink as PlaidLink,
+    type PlaidExchangeParams as PlaidExchangeParams,
+    type PlaidLinkParams as PlaidLinkParams,
+  };
 }

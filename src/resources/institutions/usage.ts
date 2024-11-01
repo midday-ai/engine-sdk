@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as UsageAPI from './usage';
 
 export class Usage extends APIResource {
   /**
@@ -29,7 +28,6 @@ export interface UsageUpdateResponse {
   data: Institution;
 }
 
-export namespace Usage {
-  export import Institution = UsageAPI.Institution;
-  export import UsageUpdateResponse = UsageAPI.UsageUpdateResponse;
+export declare namespace Usage {
+  export { type Institution as Institution, type UsageUpdateResponse as UsageUpdateResponse };
 }
