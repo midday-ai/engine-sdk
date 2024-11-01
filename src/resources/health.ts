@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as HealthAPI from './health';
 
 export class Health extends APIResource {
   /**
@@ -47,6 +46,6 @@ export namespace Health {
   }
 }
 
-export namespace Health {
-  export import Health = HealthAPI.Health;
+export declare namespace Health {
+  export { type Health as Health };
 }

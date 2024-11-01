@@ -1,10 +1,23 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import {
+  AccountBalance,
+  AccountBalanceParams,
+  AccountDeleteParams,
+  AccountDeleteResponse,
+  AccountListParams,
+  Accounts,
+} from './resources/accounts';
+import { Health } from './resources/health';
+import { Rates, RatesSchema } from './resources/rates';
+import { TransactionListParams, Transactions } from './resources/transactions';
+import { Auth } from './resources/auth/auth';
+import { InstitutionListParams, Institutions } from './resources/institutions/institutions';
 
 const environments = {
   production: 'https://engine.midday.ai',
@@ -187,47 +200,47 @@ export class Midday extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
-  MiddayError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} = Errors;
+export const MiddayError = Errors.MiddayError;
+export const APIError = Errors.APIError;
+export const APIConnectionError = Errors.APIConnectionError;
+export const APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
+export const APIUserAbortError = Errors.APIUserAbortError;
+export const NotFoundError = Errors.NotFoundError;
+export const ConflictError = Errors.ConflictError;
+export const RateLimitError = Errors.RateLimitError;
+export const BadRequestError = Errors.BadRequestError;
+export const AuthenticationError = Errors.AuthenticationError;
+export const InternalServerError = Errors.InternalServerError;
+export const PermissionDeniedError = Errors.PermissionDeniedError;
+export const UnprocessableEntityError = Errors.UnprocessableEntityError;
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace Midday {
-  export import RequestOptions = Core.RequestOptions;
+Midday.Auth = Auth;
+Midday.Rates = Rates;
 
-  export import Transactions = API.Transactions;
-  export import TransactionListParams = API.TransactionListParams;
+export declare namespace Midday {
+  export type RequestOptions = Core.RequestOptions;
 
-  export import Accounts = API.Accounts;
-  export import AccountBalance = API.AccountBalance;
-  export import AccountDeleteResponse = API.AccountDeleteResponse;
-  export import AccountListParams = API.AccountListParams;
-  export import AccountDeleteParams = API.AccountDeleteParams;
-  export import AccountBalanceParams = API.AccountBalanceParams;
+  export { type Transactions as Transactions, type TransactionListParams as TransactionListParams };
 
-  export import Institutions = API.Institutions;
-  export import InstitutionListParams = API.InstitutionListParams;
+  export {
+    type Accounts as Accounts,
+    type AccountBalance as AccountBalance,
+    type AccountDeleteResponse as AccountDeleteResponse,
+    type AccountListParams as AccountListParams,
+    type AccountDeleteParams as AccountDeleteParams,
+    type AccountBalanceParams as AccountBalanceParams,
+  };
 
-  export import Auth = API.Auth;
+  export { type Institutions as Institutions, type InstitutionListParams as InstitutionListParams };
 
-  export import Health = API.Health;
+  export { Auth as Auth };
 
-  export import Rates = API.Rates;
-  export import RatesSchema = API.RatesSchema;
+  export { type Health as Health };
+
+  export { Rates as Rates, type RatesSchema as RatesSchema };
 }
 
 export default Midday;

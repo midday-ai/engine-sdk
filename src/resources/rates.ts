@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as RatesAPI from './rates';
 
 export class Rates extends APIResource {
   /**
@@ -27,6 +26,6 @@ export namespace RatesSchema {
   }
 }
 
-export namespace Rates {
-  export import RatesSchema = RatesAPI.RatesSchema;
+export declare namespace Rates {
+  export { type RatesSchema as RatesSchema };
 }

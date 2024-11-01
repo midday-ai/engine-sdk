@@ -2,8 +2,8 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as InstitutionsAPI from './institutions';
 import * as UsageAPI from './usage';
+import { Institution, Usage, UsageUpdateResponse } from './usage';
 
 export class Institutions extends APIResource {
   usage: UsageAPI.Usage = new UsageAPI.Usage(this._client);
@@ -70,10 +70,10 @@ export interface InstitutionListParams {
   q?: string;
 }
 
-export namespace Institutions {
-  export import Institutions = InstitutionsAPI.Institutions;
-  export import InstitutionListParams = InstitutionsAPI.InstitutionListParams;
-  export import Usage = UsageAPI.Usage;
-  export import Institution = UsageAPI.Institution;
-  export import UsageUpdateResponse = UsageAPI.UsageUpdateResponse;
+Institutions.Usage = Usage;
+
+export declare namespace Institutions {
+  export { type Institutions as Institutions, type InstitutionListParams as InstitutionListParams };
+
+  export { Usage as Usage, type Institution as Institution, type UsageUpdateResponse as UsageUpdateResponse };
 }

@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../../resource';
 import * as Core from '../../../core';
-import * as AgreementAPI from './agreement';
 
 export class Agreement extends APIResource {
   /**
@@ -39,7 +38,9 @@ export interface AgreementCreateParams {
   transactionTotalDays: number;
 }
 
-export namespace Agreement {
-  export import GocardlessAgreement = AgreementAPI.GocardlessAgreement;
-  export import AgreementCreateParams = AgreementAPI.AgreementCreateParams;
+export declare namespace Agreement {
+  export {
+    type GocardlessAgreement as GocardlessAgreement,
+    type AgreementCreateParams as AgreementCreateParams,
+  };
 }

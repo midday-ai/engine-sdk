@@ -2,10 +2,16 @@
 
 export { Auth } from './auth';
 export {
-  GocardlessExchange,
-  GocardlessLink,
-  GocardlessExchangeParams,
-  GocardlessLinkParams,
   Gocardless,
+  type GocardlessExchange,
+  type GocardlessLink,
+  type GocardlessExchangeParams,
+  type GocardlessLinkParams,
 } from './gocardless/index';
-export { PlaidExchange, PlaidLink, PlaidExchangeParams, PlaidLinkParams, Plaid } from './plaid';
+export {
+  Plaid,
+  type PlaidExchange,
+  type PlaidLink,
+  type PlaidExchangeParams,
+  type PlaidLinkParams,
+} from './plaid';
