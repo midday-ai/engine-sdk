@@ -25,7 +25,6 @@ const environments = {
   development: 'http://localhost:3002',
 };
 type Environment = keyof typeof environments;
-
 export interface ClientOptions {
   /**
    * Defaults to process.env['MIDDAY_ENGINE_API_KEY'].
@@ -200,28 +199,8 @@ export class Midday extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  MiddayError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 Midday.Auth = Auth;
 Midday.Rates = Rates;
-
 export declare namespace Midday {
   export type RequestOptions = Core.RequestOptions;
 
@@ -244,5 +223,22 @@ export declare namespace Midday {
 
   export { Rates as Rates, type RatesSchema as RatesSchema };
 }
+
+export { toFile, fileFromPath } from '@midday-ai/engine/uploads';
+export {
+  MiddayError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from '@midday-ai/engine/error';
 
 export default Midday;
