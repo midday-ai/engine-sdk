@@ -224,7 +224,7 @@ export declare namespace Midday {
   export { Rates as Rates, type RatesSchema as RatesSchema };
 }
 
-export { toFile, fileFromPath } from '@midday-ai/engine/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   MiddayError,
   APIError,
@@ -239,6 +239,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from '@midday-ai/engine/error';
+} from './error';
 
 export default Midday;
