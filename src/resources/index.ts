@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export { Auth } from './auth/auth';
+export { Connections, type ConnectionStatus, type ConnectionStatusParams } from './connections';
 export { Rates, type RatesSchema } from './rates';
 export {
   type Accounts,

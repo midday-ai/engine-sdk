@@ -98,3 +98,13 @@ Types:
 Methods:
 
 - <code title="get /rates">client.rates.<a href="./src/resources/rates.ts">list</a>() -> RatesSchema</code>
+
+# Connections
+
+Types:
+
+- <code><a href="./src/resources/connections.ts">ConnectionStatus</a></code>
+
+Methods:
+
+- <code title="get /connections/status">client.connections.<a href="./src/resources/connections.ts">status</a>({ ...params }) -> ConnectionStatus</code>

@@ -13,6 +13,7 @@ import {
   AccountListParams,
   Accounts,
 } from './resources/accounts';
+import { ConnectionStatus, ConnectionStatusParams, Connections } from './resources/connections';
 import { Health } from './resources/health';
 import { Rates, RatesSchema } from './resources/rates';
 import { TransactionListParams, Transactions } from './resources/transactions';
@@ -162,6 +163,7 @@ export class Midday extends Core.APIClient {
   auth: API.Auth = new API.Auth(this);
   health: API.Health = new API.Health(this);
   rates: API.Rates = new API.Rates(this);
+  connections: API.Connections = new API.Connections(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -201,6 +203,7 @@ export class Midday extends Core.APIClient {
 
 Midday.Auth = Auth;
 Midday.Rates = Rates;
+Midday.Connections = Connections;
 export declare namespace Midday {
   export type RequestOptions = Core.RequestOptions;
 
@@ -222,6 +225,12 @@ export declare namespace Midday {
   export { type Health as Health };
 
   export { Rates as Rates, type RatesSchema as RatesSchema };
+
+  export {
+    Connections as Connections,
+    type ConnectionStatus as ConnectionStatus,
+    type ConnectionStatusParams as ConnectionStatusParams,
+  };
 }
 
 export { toFile, fileFromPath } from './uploads';
