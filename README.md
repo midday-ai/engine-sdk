@@ -53,13 +53,7 @@ const client = new Midday({
 });
 
 async function main() {
-  const params: Midday.TransactionListParams = {
-    accountId: '5341343-4234-4c65-815c-t234213442',
-    accountType: 'credit',
-    provider: 'teller',
-    accessToken: 'token-123',
-  };
-  const transactions: Midday.Transactions = await client.transactions.list(params);
+  const health: Midday.Health = await client.health.retrieve();
 }
 
 main();
@@ -76,22 +70,15 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const transactions = await client.transactions
-    .list({
-      accountId: '5341343-4234-4c65-815c-t234213442',
-      accountType: 'credit',
-      provider: 'teller',
-      accessToken: 'token-123',
-    })
-    .catch(async (err) => {
-      if (err instanceof Midday.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
+  const health = await client.health.retrieve().catch(async (err) => {
+    if (err instanceof Midday.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 }
 
 main();
@@ -126,7 +113,7 @@ const client = new Midday({
 });
 
 // Or, configure per-request:
-await client.transactions.list({ accountId: '5341343-4234-4c65-815c-t234213442', accountType: 'credit', provider: 'teller', accessToken: 'token-123' }, {
+await client.health.retrieve({
   maxRetries: 5,
 });
 ```
@@ -143,7 +130,7 @@ const client = new Midday({
 });
 
 // Override per-request:
-await client.transactions.list({ accountId: '5341343-4234-4c65-815c-t234213442', accountType: 'credit', provider: 'teller', accessToken: 'token-123' }, {
+await client.health.retrieve({
   timeout: 5 * 1000,
 });
 ```
@@ -164,27 +151,13 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new Midday();
 
-const response = await client.transactions
-  .list({
-    accountId: '5341343-4234-4c65-815c-t234213442',
-    accountType: 'credit',
-    provider: 'teller',
-    accessToken: 'token-123',
-  })
-  .asResponse();
+const response = await client.health.retrieve().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: transactions, response: raw } = await client.transactions
-  .list({
-    accountId: '5341343-4234-4c65-815c-t234213442',
-    accountType: 'credit',
-    provider: 'teller',
-    accessToken: 'token-123',
-  })
-  .withResponse();
+const { data: health, response: raw } = await client.health.retrieve().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(transactions.data);
+console.log(health.data);
 ```
 
 ### Making custom/undocumented requests
@@ -288,17 +261,9 @@ const client = new Midday({
 });
 
 // Override per-request:
-await client.transactions.list(
-  {
-    accountId: '5341343-4234-4c65-815c-t234213442',
-    accountType: 'credit',
-    provider: 'teller',
-    accessToken: 'token-123',
-  },
-  {
-    httpAgent: new http.Agent({ keepAlive: false }),
-  },
-);
+await client.health.retrieve({
+  httpAgent: new http.Agent({ keepAlive: false }),
+});
 ```
 
 ## Semantic versioning
