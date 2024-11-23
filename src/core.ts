@@ -84,8 +84,10 @@ export class APIPromise<T> extends Promise<T> {
     });
   }
 
-  _thenUnwrap<U>(transform: (data: T) => U): APIPromise<U> {
-    return new APIPromise(this.responsePromise, async (props) => transform(await this.parseResponse(props)));
+  _thenUnwrap<U>(transform: (data: T, props: APIResponseProps) => U): APIPromise<U> {
+    return new APIPromise(this.responsePromise, async (props) =>
+      transform(await this.parseResponse(props), props),
+    );
   }
 
   /**
@@ -349,9 +351,13 @@ export abstract class APIClient {
       delete reqHeaders['content-type'];
     }
 
-    // Don't set the retry count header if it was already set or removed by the caller. We check `headers`,
-    // which can contain nulls, instead of `reqHeaders` to account for the removal case.
-    if (getHeader(headers, 'x-stainless-retry-count') === undefined) {
+    // Don't set the retry count header if it was already set or removed through default headers or by the
+    // caller. We check `defaultHeaders` and `headers`, which can contain nulls, instead of `reqHeaders` to
+    // account for the removal case.
+    if (
+      getHeader(defaultHeaders, 'x-stainless-retry-count') === undefined &&
+      getHeader(headers, 'x-stainless-retry-count') === undefined
+    ) {
       reqHeaders['x-stainless-retry-count'] = String(retryCount);
     }
 
@@ -390,7 +396,7 @@ export abstract class APIClient {
     error: Object | undefined,
     message: string | undefined,
     headers: Headers | undefined,
-  ) {
+  ): APIError {
     return APIError.generate(status, error, message, headers);
   }
 
@@ -662,9 +668,9 @@ export abstract class AbstractPage<Item> implements AsyncIterable<Item> {
     return await this.#client.requestAPIList(this.constructor as any, nextOptions);
   }
 
-  async *iterPages() {
+  async *iterPages(): AsyncGenerator<this> {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
-    let page: AbstractPage<Item> = this;
+    let page: this = this;
     yield page;
     while (page.hasNextPage()) {
       page = await page.getNextPage();
@@ -672,7 +678,7 @@ export abstract class AbstractPage<Item> implements AsyncIterable<Item> {
     }
   }
 
-  async *[Symbol.asyncIterator]() {
+  async *[Symbol.asyncIterator](): AsyncGenerator<Item> {
     for await (const page of this.iterPages()) {
       for (const item of page.getPaginatedItems()) {
         yield item;
@@ -715,7 +721,7 @@ export class PagePromise<
    *      console.log(item)
    *    }
    */
-  async *[Symbol.asyncIterator]() {
+  async *[Symbol.asyncIterator](): AsyncGenerator<Item> {
     const page = await this;
     for await (const item of page) {
       yield item;

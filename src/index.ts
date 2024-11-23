@@ -1,10 +1,24 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import {
+  AccountBalance,
+  AccountBalanceParams,
+  AccountDeleteParams,
+  AccountDeleteResponse,
+  AccountListParams,
+  Accounts,
+} from './resources/accounts';
+import { ConnectionStatus, ConnectionStatusParams, Connections } from './resources/connections';
+import { Health } from './resources/health';
+import { Rates, RatesSchema } from './resources/rates';
+import { TransactionListParams, Transactions } from './resources/transactions';
+import { Auth } from './resources/auth/auth';
+import { InstitutionListParams, Institutions } from './resources/institutions/institutions';
 
 const environments = {
   production: 'https://engine.midday.ai',
@@ -12,7 +26,6 @@ const environments = {
   development: 'http://localhost:3002',
 };
 type Environment = keyof typeof environments;
-
 export interface ClientOptions {
   /**
    * Defaults to process.env['MIDDAY_ENGINE_API_KEY'].
@@ -150,6 +163,7 @@ export class Midday extends Core.APIClient {
   auth: API.Auth = new API.Auth(this);
   health: API.Health = new API.Health(this);
   rates: API.Rates = new API.Rates(this);
+  connections: API.Connections = new API.Connections(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -187,7 +201,40 @@ export class Midday extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+Midday.Auth = Auth;
+Midday.Rates = Rates;
+Midday.Connections = Connections;
+export declare namespace Midday {
+  export type RequestOptions = Core.RequestOptions;
+
+  export { type Transactions as Transactions, type TransactionListParams as TransactionListParams };
+
+  export {
+    type Accounts as Accounts,
+    type AccountBalance as AccountBalance,
+    type AccountDeleteResponse as AccountDeleteResponse,
+    type AccountListParams as AccountListParams,
+    type AccountDeleteParams as AccountDeleteParams,
+    type AccountBalanceParams as AccountBalanceParams,
+  };
+
+  export { type Institutions as Institutions, type InstitutionListParams as InstitutionListParams };
+
+  export { Auth as Auth };
+
+  export { type Health as Health };
+
+  export { Rates as Rates, type RatesSchema as RatesSchema };
+
+  export {
+    Connections as Connections,
+    type ConnectionStatus as ConnectionStatus,
+    type ConnectionStatusParams as ConnectionStatusParams,
+  };
+}
+
+export { toFile, fileFromPath } from './uploads';
+export {
   MiddayError,
   APIError,
   APIConnectionError,
@@ -201,33 +248,6 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
-export namespace Midday {
-  export import RequestOptions = Core.RequestOptions;
-
-  export import Transactions = API.Transactions;
-  export import TransactionListParams = API.TransactionListParams;
-
-  export import Accounts = API.Accounts;
-  export import AccountBalance = API.AccountBalance;
-  export import AccountDeleteResponse = API.AccountDeleteResponse;
-  export import AccountListParams = API.AccountListParams;
-  export import AccountDeleteParams = API.AccountDeleteParams;
-  export import AccountBalanceParams = API.AccountBalanceParams;
-
-  export import Institutions = API.Institutions;
-  export import InstitutionListParams = API.InstitutionListParams;
-
-  export import Auth = API.Auth;
-
-  export import Health = API.Health;
-
-  export import Rates = API.Rates;
-  export import RatesSchema = API.RatesSchema;
-}
+} from './error';
 
 export default Midday;

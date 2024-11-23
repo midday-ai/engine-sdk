@@ -2,8 +2,8 @@
 
 import { APIResource } from '../../../resource';
 import * as Core from '../../../core';
-import * as GocardlessAPI from './gocardless';
 import * as AgreementAPI from './agreement';
+import { Agreement, AgreementCreateParams, GocardlessAgreement } from './agreement';
 
 export class Gocardless extends APIResource {
   agreement: AgreementAPI.Agreement = new AgreementAPI.Agreement(this._client);
@@ -68,12 +68,19 @@ export interface GocardlessLinkParams {
   reference?: string;
 }
 
-export namespace Gocardless {
-  export import GocardlessExchange = GocardlessAPI.GocardlessExchange;
-  export import GocardlessLink = GocardlessAPI.GocardlessLink;
-  export import GocardlessExchangeParams = GocardlessAPI.GocardlessExchangeParams;
-  export import GocardlessLinkParams = GocardlessAPI.GocardlessLinkParams;
-  export import Agreement = AgreementAPI.Agreement;
-  export import GocardlessAgreement = AgreementAPI.GocardlessAgreement;
-  export import AgreementCreateParams = AgreementAPI.AgreementCreateParams;
+Gocardless.Agreement = Agreement;
+
+export declare namespace Gocardless {
+  export {
+    type GocardlessExchange as GocardlessExchange,
+    type GocardlessLink as GocardlessLink,
+    type GocardlessExchangeParams as GocardlessExchangeParams,
+    type GocardlessLinkParams as GocardlessLinkParams,
+  };
+
+  export {
+    Agreement as Agreement,
+    type GocardlessAgreement as GocardlessAgreement,
+    type AgreementCreateParams as AgreementCreateParams,
+  };
 }

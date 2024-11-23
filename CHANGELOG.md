@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.1.0-alpha.24 (2024-11-23)
+
+Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
+
+### Features
+
+* **api:** api update ([#101](https://github.com/midday-ai/engine-sdk/issues/101)) ([be039c6](https://github.com/midday-ai/engine-sdk/commit/be039c62b850c71b0d3d123a3d6c7352d2a871ba))
+* **api:** api update ([#114](https://github.com/midday-ai/engine-sdk/issues/114)) ([3800a57](https://github.com/midday-ai/engine-sdk/commit/3800a57571dec3ed4e41a43fe2dc366caa7cf108))
+* **api:** manual updates ([#115](https://github.com/midday-ai/engine-sdk/issues/115)) ([40734f6](https://github.com/midday-ai/engine-sdk/commit/40734f652197a04152c9168ff753b6ff4d630178))
+
+
+### Chores
+
+* rebuild project due to codegen change ([#103](https://github.com/midday-ai/engine-sdk/issues/103)) ([96fe762](https://github.com/midday-ai/engine-sdk/commit/96fe7624a9552fbfc68e63807a206ea6ab9c6e06))
+* rebuild project due to codegen change ([#104](https://github.com/midday-ai/engine-sdk/issues/104)) ([5afe2a0](https://github.com/midday-ai/engine-sdk/commit/5afe2a0f5315200e2ab7fd53f67d6cdb36c39ee7))
+* rebuild project due to codegen change ([#105](https://github.com/midday-ai/engine-sdk/issues/105)) ([21f4b30](https://github.com/midday-ai/engine-sdk/commit/21f4b3055de571eefc88d18bdb54b1b66f08cc99))
+* rebuild project due to codegen change ([#106](https://github.com/midday-ai/engine-sdk/issues/106)) ([981d1ea](https://github.com/midday-ai/engine-sdk/commit/981d1ead38294bd3f37c728e25129d51ab6d5531))
+* rebuild project due to codegen change ([#107](https://github.com/midday-ai/engine-sdk/issues/107)) ([0118d64](https://github.com/midday-ai/engine-sdk/commit/0118d64c02d4f5674d29595e10d4c056d5b1db53))
+* rebuild project due to codegen change ([#108](https://github.com/midday-ai/engine-sdk/issues/108)) ([4294e6e](https://github.com/midday-ai/engine-sdk/commit/4294e6ec535cadfae58d7aba5317f0d576397cf6))
+* rebuild project due to codegen change ([#109](https://github.com/midday-ai/engine-sdk/issues/109)) ([bdf006a](https://github.com/midday-ai/engine-sdk/commit/bdf006ad5979702cff3a8ee35eb1a7819bb5b01e))
+* rebuild project due to codegen change ([#110](https://github.com/midday-ai/engine-sdk/issues/110)) ([edfc43d](https://github.com/midday-ai/engine-sdk/commit/edfc43dcc0731180216a30144e153661b938a1e1))
+* rebuild project due to codegen change ([#111](https://github.com/midday-ai/engine-sdk/issues/111)) ([bd14611](https://github.com/midday-ai/engine-sdk/commit/bd14611eacd539dbfd50a13ebe0645daf98afbf1))
+* remove redundant word in comment ([#113](https://github.com/midday-ai/engine-sdk/issues/113)) ([fe7c003](https://github.com/midday-ai/engine-sdk/commit/fe7c003d61bdcce4730e195dda1eb7c5e692e74d))
+
+
+### Documentation
+
+* remove suggestion to use `npm` call out ([#112](https://github.com/midday-ai/engine-sdk/issues/112)) ([9996bfb](https://github.com/midday-ai/engine-sdk/commit/9996bfb641d5601e522acfa6a20de133c157b929))
+
 ## 0.1.0-alpha.23 (2024-10-07)
 
 Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
