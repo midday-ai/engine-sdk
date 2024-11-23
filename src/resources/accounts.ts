@@ -83,7 +83,7 @@ export interface AccountListParams {
   id?: string;
 
   /**
-   * Teller & Plaid access token
+   * Teller or Plaid access token
    */
   accessToken?: string;
 
@@ -102,7 +102,7 @@ export interface AccountDeleteParams {
   provider: 'teller' | 'plaid' | 'gocardless';
 
   /**
-   * Teller & Plaid access token
+   * Teller or Plaid access token
    */
   accessToken?: string;
 }
@@ -116,7 +116,7 @@ export interface AccountBalanceParams {
   provider: 'teller' | 'plaid' | 'gocardless';
 
   /**
-   * Teller & Plaid access token
+   * Teller or Plaid access token
    */
   accessToken?: string;
 }
