@@ -30,7 +30,7 @@ describe('resource transactions', () => {
       accountType: 'credit',
       provider: 'teller',
       accessToken: 'token-123',
-      latest: 'true',
+      latest: true,
     });
   });
 });
