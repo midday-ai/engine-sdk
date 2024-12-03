@@ -61,7 +61,7 @@ export interface TransactionListParams {
   /**
    * Get latest transactions
    */
-  latest?: 'true' | 'false';
+  latest?: boolean | null;
 }
 
 export declare namespace Transactions {
