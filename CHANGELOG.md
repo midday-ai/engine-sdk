@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.25 (2024-12-08)
+
+Full Changelog: [v0.1.0-alpha.24...v0.1.0-alpha.25](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.24...v0.1.0-alpha.25)
+
+### Features
+
+* **api:** api update ([#119](https://github.com/midday-ai/engine-sdk/issues/119)) ([cba2e87](https://github.com/midday-ai/engine-sdk/commit/cba2e872ae7b05cbf700b219c8044f1f94586e89))
+* **internal:** make git install file structure match npm ([#117](https://github.com/midday-ai/engine-sdk/issues/117)) ([23dd10a](https://github.com/midday-ai/engine-sdk/commit/23dd10a9c381605b86adb9bb14c2d8afc05cd13d))
+
 ## 0.1.0-alpha.24 (2024-11-23)
 
 Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
