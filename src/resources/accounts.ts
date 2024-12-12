@@ -52,11 +52,19 @@ export namespace Accounts {
 
     currency: string;
 
+    /**
+     * Teller/Plaid enrollment id
+     */
     enrollment_id: string | null;
 
     institution: UsageAPI.Institution;
 
     name: string;
+
+    /**
+     * GoCardLess reference id
+     */
+    resource_id: string | null;
 
     type: 'depository' | 'credit' | 'other_asset' | 'loan' | 'other_liability';
   }
