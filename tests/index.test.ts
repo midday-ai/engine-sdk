@@ -196,7 +196,7 @@ describe('instantiate client', () => {
     expect(client.bearerToken).toBe('My Bearer Token');
   });
 
-  test('with overriden environment variable arguments', () => {
+  test('with overridden environment variable arguments', () => {
     // set options via env var
     process.env['MIDDAY_ENGINE_API_KEY'] = 'another My Bearer Token';
     const client = new Midday({ bearerToken: 'My Bearer Token' });
