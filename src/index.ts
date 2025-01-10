@@ -26,6 +26,7 @@ const environments = {
   development: 'http://localhost:3002',
 };
 type Environment = keyof typeof environments;
+
 export interface ClientOptions {
   /**
    * Defaults to process.env['MIDDAY_ENGINE_API_KEY'].
