@@ -57,6 +57,11 @@ export namespace Accounts {
      */
     enrollment_id: string | null;
 
+    /**
+     * EnableBanking or GoCardLess access valid until
+     */
+    expires_at: string | null;
+
     institution: UsageAPI.Institution;
 
     name: string;
