@@ -51,7 +51,7 @@ export interface TransactionListParams {
    */
   accountType: 'credit' | 'depository';
 
-  provider: 'teller' | 'plaid' | 'gocardless';
+  provider: 'teller' | 'plaid' | 'gocardless' | 'enablebanking';
 
   /**
    * Used for Teller and Plaid
