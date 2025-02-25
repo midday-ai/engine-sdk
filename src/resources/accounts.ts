@@ -83,7 +83,7 @@ export interface AccountDeleteResponse {
 }
 
 export interface AccountListParams {
-  provider: 'teller' | 'plaid' | 'gocardless';
+  provider: 'teller' | 'plaid' | 'gocardless' | 'enablebanking';
 
   /**
    * GoCardLess reference id
@@ -107,7 +107,7 @@ export interface AccountDeleteParams {
    */
   accountId: string;
 
-  provider: 'teller' | 'plaid' | 'gocardless';
+  provider: 'teller' | 'plaid' | 'gocardless' | 'enablebanking';
 
   /**
    * Teller or Plaid access token
@@ -121,7 +121,7 @@ export interface AccountBalanceParams {
    */
   id: string;
 
-  provider: 'teller' | 'plaid' | 'gocardless';
+  provider: 'teller' | 'plaid' | 'gocardless' | 'enablebanking';
 
   /**
    * Teller or Plaid access token
