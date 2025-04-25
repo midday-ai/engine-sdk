@@ -1,5 +1,41 @@
 # Changelog
 
+## 0.1.0-alpha.25 (2025-04-25)
+
+Full Changelog: [v0.1.0-alpha.24...v0.1.0-alpha.25](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.24...v0.1.0-alpha.25)
+
+### Features
+
+* **api:** api update ([#119](https://github.com/midday-ai/engine-sdk/issues/119)) ([cba2e87](https://github.com/midday-ai/engine-sdk/commit/cba2e872ae7b05cbf700b219c8044f1f94586e89))
+* **api:** api update ([#122](https://github.com/midday-ai/engine-sdk/issues/122)) ([f562447](https://github.com/midday-ai/engine-sdk/commit/f5624476ce0412dca3e4f9d2adef2b1206c43c90))
+* **api:** api update ([#136](https://github.com/midday-ai/engine-sdk/issues/136)) ([b5e0603](https://github.com/midday-ai/engine-sdk/commit/b5e0603fb5d49c3a2cc1c6563a098047c35263ff))
+* **api:** api update ([#137](https://github.com/midday-ai/engine-sdk/issues/137)) ([b319761](https://github.com/midday-ai/engine-sdk/commit/b319761df67bbabf572da267deb2067e8e1aa2ea))
+* **internal:** make git install file structure match npm ([#117](https://github.com/midday-ai/engine-sdk/issues/117)) ([23dd10a](https://github.com/midday-ai/engine-sdk/commit/23dd10a9c381605b86adb9bb14c2d8afc05cd13d))
+
+
+### Bug Fixes
+
+* **client:** normalize method ([#129](https://github.com/midday-ai/engine-sdk/issues/129)) ([bf609ea](https://github.com/midday-ai/engine-sdk/commit/bf609ea551fc8fea57cfa5c1d67fb4f56ae24d28))
+
+
+### Chores
+
+* **internal:** change formatting ([#133](https://github.com/midday-ai/engine-sdk/issues/133)) ([be9565f](https://github.com/midday-ai/engine-sdk/commit/be9565f909dc9f7aad71f0b680bd884d4ddd3cb1))
+* **internal:** codegen related update ([#124](https://github.com/midday-ai/engine-sdk/issues/124)) ([9a2ebaf](https://github.com/midday-ai/engine-sdk/commit/9a2ebaf6c7e49eebe1627a7b6bbc0c011374d65e))
+* **internal:** codegen related update ([#125](https://github.com/midday-ai/engine-sdk/issues/125)) ([3447f7d](https://github.com/midday-ai/engine-sdk/commit/3447f7db0d7d1d5f61cfa066b7db70c00219d360))
+* **internal:** codegen related update ([#126](https://github.com/midday-ai/engine-sdk/issues/126)) ([a440d76](https://github.com/midday-ai/engine-sdk/commit/a440d769d91f3caabe494e5bac3f7a41dbe055a2))
+* **internal:** codegen related update ([#127](https://github.com/midday-ai/engine-sdk/issues/127)) ([1450ab2](https://github.com/midday-ai/engine-sdk/commit/1450ab2a25a94b643c420fb7bd459426f9d7c740))
+* **internal:** codegen related update ([#130](https://github.com/midday-ai/engine-sdk/issues/130)) ([3dad50d](https://github.com/midday-ai/engine-sdk/commit/3dad50d6caccc8ad1e7e451d714b42de7fae3c2d))
+* **internal:** codegen related update ([#131](https://github.com/midday-ai/engine-sdk/issues/131)) ([338b99a](https://github.com/midday-ai/engine-sdk/commit/338b99a0e470c2a496228d8a452687806fc9a390))
+* **internal:** codegen related update ([#132](https://github.com/midday-ai/engine-sdk/issues/132)) ([83b5664](https://github.com/midday-ai/engine-sdk/commit/83b5664586e301c937bbcf1c427d753d4c3db90b))
+* **internal:** codegen related update ([#134](https://github.com/midday-ai/engine-sdk/issues/134)) ([7588036](https://github.com/midday-ai/engine-sdk/commit/75880363ec3033da306fdcd959ed93b25d11bc63))
+* **internal:** codegen related update ([#135](https://github.com/midday-ai/engine-sdk/issues/135)) ([98cf86a](https://github.com/midday-ai/engine-sdk/commit/98cf86a6be37f8958ca2ecabd05dc39b923372d9))
+* **internal:** codegen related update ([#138](https://github.com/midday-ai/engine-sdk/issues/138)) ([5bfa50a](https://github.com/midday-ai/engine-sdk/commit/5bfa50adddd2545586cbeceeaabbea0e026004d4))
+* **internal:** codegen related update ([#139](https://github.com/midday-ai/engine-sdk/issues/139)) ([0dab932](https://github.com/midday-ai/engine-sdk/commit/0dab9321834cdf4c2c58adda2bca0eed8de50e63))
+* **internal:** fix some typos ([#128](https://github.com/midday-ai/engine-sdk/issues/128)) ([b691d99](https://github.com/midday-ai/engine-sdk/commit/b691d99dcacde8f9073e5e87d5ddc12ec15b459d))
+* **internal:** update isAbsoluteURL ([#123](https://github.com/midday-ai/engine-sdk/issues/123)) ([70d727b](https://github.com/midday-ai/engine-sdk/commit/70d727b5871aec130f468e98f3481b26cffeef05))
+* **types:** nicer error class types + jsdocs ([#121](https://github.com/midday-ai/engine-sdk/issues/121)) ([3eeaf11](https://github.com/midday-ai/engine-sdk/commit/3eeaf11f93ed92a4bb932af21c637e7811f06cb4))
+
 ## 0.1.0-alpha.24 (2024-11-23)
 
 Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/midday-ai/engine-sdk/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
