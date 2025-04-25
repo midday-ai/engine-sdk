@@ -52,11 +52,24 @@ export namespace Accounts {
 
     currency: string;
 
+    /**
+     * Teller/Plaid enrollment id
+     */
     enrollment_id: string | null;
+
+    /**
+     * EnableBanking or GoCardLess access valid until
+     */
+    expires_at: string | null;
 
     institution: UsageAPI.Institution;
 
     name: string;
+
+    /**
+     * GoCardLess reference id
+     */
+    resource_id: string | null;
 
     type: 'depository' | 'credit' | 'other_asset' | 'loan' | 'other_liability';
   }
@@ -75,7 +88,7 @@ export interface AccountDeleteResponse {
 }
 
 export interface AccountListParams {
-  provider: 'teller' | 'plaid' | 'gocardless';
+  provider: 'teller' | 'plaid' | 'gocardless' | 'enablebanking';
 
   /**
    * GoCardLess reference id
@@ -99,7 +112,7 @@ export interface AccountDeleteParams {
    */
   accountId: string;
 
-  provider: 'teller' | 'plaid' | 'gocardless';
+  provider: 'teller' | 'plaid' | 'gocardless' | 'enablebanking';
 
   /**
    * Teller or Plaid access token
@@ -113,7 +126,7 @@ export interface AccountBalanceParams {
    */
   id: string;
 
-  provider: 'teller' | 'plaid' | 'gocardless';
+  provider: 'teller' | 'plaid' | 'gocardless' | 'enablebanking';
 
   /**
    * Teller or Plaid access token

@@ -35,6 +35,8 @@ export interface PlaidExchange {
 export namespace PlaidExchange {
   export interface Data {
     access_token: string;
+
+    item_id: string;
   }
 }
 

@@ -23,7 +23,7 @@ export namespace ConnectionStatus {
 }
 
 export interface ConnectionStatusParams {
-  provider: 'teller' | 'plaid' | 'gocardless';
+  provider: 'teller' | 'plaid' | 'gocardless' | 'enablebanking';
 
   /**
    * GoCardLess reference id

@@ -51,7 +51,7 @@ export interface TransactionListParams {
    */
   accountType: 'credit' | 'depository';
 
-  provider: 'teller' | 'plaid' | 'gocardless';
+  provider: 'teller' | 'plaid' | 'gocardless' | 'enablebanking';
 
   /**
    * Used for Teller and Plaid
@@ -61,7 +61,7 @@ export interface TransactionListParams {
   /**
    * Get latest transactions
    */
-  latest?: 'true' | 'false';
+  latest?: boolean | null;
 }
 
 export declare namespace Transactions {
